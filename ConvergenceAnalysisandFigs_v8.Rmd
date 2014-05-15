@@ -1,0 +1,27 @@
+Convergent Morphological Evolution in Squamate Reptiles
+========================================================
+
+This document includes all code required to generate the figures and results presented in our manuscript.
+
+(1) load dependencies
+
+```{r}
+library(geometry)
+library(geiger)
+library(pcaMethods)
+library(MASS)
+library(TreeSim)
+```
+
+Get the trait data. This assumes that the file "squamorph_v2.csv" is in the working directory indicated below; change that for your local machine.
+
+```{r fig.width=7, fig.height=6}
+# get trait data
+sqMorphA<-read.csv("squamorph_v2.csv", na.strings=c("", " ", "."))
+
+# pull out just continuously distributed characters
+sqMorphContinuous<-sqMorphA[1:384, 4:26]
+
+species<-as.character(sqMorphA[1:384, 1])
+```
+
