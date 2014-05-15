@@ -13,15 +13,102 @@ library(MASS)
 library(TreeSim)
 ```
 
-Get the trait data. This assumes that the file "squamorph_v2.csv" is in the working directory indicated below; change that for your local machine.
+Get the trait data.
 
-```{r fig.width=7, fig.height=6}
+```{r}
+
 # get trait data
-sqMorphA<-read.csv("squamorph_v2.csv", na.strings=c("", " ", "."))
+sqMorphA<-read.csv("data/squamorph_v2.csv", na.strings=c("", " ", "."))
 
 # pull out just continuously distributed characters
 sqMorphContinuous<-sqMorphA[1:384, 4:26]
 
+# pull out species names
 species<-as.character(sqMorphA[1:384, 1])
 ```
+
+Some of the names in 'species' don't match anything in the taxonomy for various reasons - mainly, they are outdated. The following lines substitute for some of the names. There are notes after each one. In some cases, the match is not exact - but all matches are close enough to place species in the correct clade for our analyses.
+
+```{r}
+
+#manual translation of outdated names
+altSpecies<-species
+altSpecies[species=="Cosymbotus"]<-"Hemidactylus craspedotus" # former monotypic genus
+altSpecies[species=="Gecko"]<-"Gekko albofasciolatus" # arbitrary
+altSpecies[species=="Geckonia"]<-"Tarentola chazaliae" # former monotypic genus
+altSpecies[species=="Microscalabo"]<-"Lygodactylus bivittis" # former monotypic genus
+altSpecies[species=="Palmatogecko"]<-"Pachydactylus vanzyli" # former genus w 2 species
+altSpecies[species=="Tenuidactylu"]<-"Cyrtopodion caspium" # not sure what happened here
+altSpecies[species=="Teratolepis"]<-"Hemidactylus albofasciatus" # small genus absorbed into hemidac?
+altSpecies[species=="Chamaeleojax"]<-"Trioceros jacksonii" # reclassified
+altSpecies[species=="Chamaeleorhi"]<-"Furcifer rhinoceratus" # has to be? rhi?
+altSpecies[species=="amphibbarbat"]<-"Pogona barbata" # I am pretty sure these three are correct
+altSpecies[species=="amphibisolep"]<-"Ctenophorus isolepis" #
+altSpecies[species=="amphibnuchal"]<-"Ctenophorus nuchalis" #
+# I think "Stellio" is correct - the listed species has a synonym of Stellio stellio
+altSpecies[species=="Sator"]<-"Sceloporus angustus" #
+altSpecies[species=="Scelopmagist"]<-"Sceloporus magister" #
+altSpecies[species=="Scelopoccide"]<-"Sceloporus occidentalis" #
+altSpecies[species=="Sceloporussi"]<-"Sceloporus rufidorsum" # I have no idea what this might be, but it's in the right genus at least
+altSpecies[species=="Aperopristis"]<-"Leiosaurus catamarcensis" # old name
+altSpecies[species=="Aptycholaemu"]<-"Anisolepis longicauda" # old name
+altSpecies[species=="Chamaeleolis"]<-"Anolis chamaeleonides" # old name
+altSpecies[species=="Chamaelinoro"]<-"Anolis barbouri" # old name
+altSpecies[species=="Phenacosauru"]<-"Anolis bellipeniculus" # old name
+altSpecies[species=="Ophryoessoid"]<-"Stenocercus caducus" # old name
+altSpecies[species=="Proctotrectu"]<-"Stenocercus pectinatus" # old name - might be something else
+altSpecies[species=="Tropidurusto"]<-"Tropidurus torquatus" # 
+altSpecies[species=="Sauresia"]<-"Celestus agasepsoides" # old name
+altSpecies[species=="Wetmorena"]<-"Celestus haetianus" # i think this is exact
+altSpecies[species=="Pelamis"]<-"Hydrophis curtus" # 
+altSpecies[species=="Python"]<-"Python molurus" # 
+altSpecies[species=="Zaocys"]<-"Ptyas fusca" # 
+altSpecies[species=="Aporosaura"]<-"Meroles anchietae" # exact
+altSpecies[species=="Meroles"]<-"Meroles ctenodactylus" # choosing different species
+altSpecies[species=="Cabrita"]<-"Ophisops leschenaultii" # old genus
+altSpecies[species=="Lacertalep"]<-"Timon lepidus" # must be correct, a real trick
+altSpecies[species=="Platyplacopu"]<-"Takydromus intermedius" # 
+altSpecies[species=="Anops"]<-"Amphisbaena acrobeles" # 
+altSpecies[species=="Leposternon"]<-"Amphisbaena cerradensis" # 
+altSpecies[species=="Pantodactylu"]<-"Cercosaura quadrilineata" # 
+altSpecies[species=="Prionodactyl"]<-"Cercosaura argulus" # 
+altSpecies[species=="Anotis"]<-"Nannoscincus gracilis" # could be other things but all lygosomines
+altSpecies[species=="Apterygodon"]<-"Dasia vittata" # only hit
+altSpecies[species=="Riopa"]<-"Ablepharus pannonicus" # honestly no idea - tons of things
+altSpecies[species=="Siaphos"]<-"Saiphos equalis" # 
+altSpecies[species=="Trachydosaur"]<-"Tiliqua rugosa" # 
+altSpecies[species=="Fitzsimonsia"]<-"Typhlacontias brevipes" # I think - locality matches, seems right
+altSpecies[species=="Typhlacontia"]<-"Typhlacontias gracilis" # Random different species in genus
+altSpecies[species=="Neoseps"]<-"Plestiodon reynoldsi" # 
+altSpecies[381]<-"Platysaurus capensis" # just choosing a different species
+altSpecies[384]<-"Lygosoma albopunctata" # just choosing a different species
+```
+
+We now use the taxonomy from Burbrink and Pyron to assign our specimens to clades. 
+
+```{r}
+
+# read in the taxonomy file
+tnrs<-read.csv("data/squam_TNRS.csv")
+
+# assign family, subfamily
+# spMatchForFamily saves the species used for the matching assignment
+family<-character(length=length(altSpecies))
+subfam<-character(length=length(altSpecies))
+spMatchForFamily<-character(length=length(altSpecies))
+for(i in 1:length(altSpecies)) {
+  mm<-agrep(altSpecies[i], tnrs[,2])
+	if(length(mm)>0) {
+		aa<-adist(altSpecies[i],tnrs[mm,2], partial=T)
+		md<-which(aa[1,]==min(aa[1,]))
+		spMatchForFamily[i]<-as.character(tnrs[mm,2][md[1]])
+		family[i]<-as.character(tnrs[mm,3][md[1]])
+		subfam[i]<-as.character(tnrs[mm,4][md[1]])
+	}
+}
+
+cbind(species, altSpecies, spMatchForFamily, subfam, family)
+
+```
+
 

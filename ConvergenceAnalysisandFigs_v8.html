@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Convergent Morphological Evolution in Squamate Reptiles</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<h1>Convergent Morphological Evolution in Squamate Reptiles</h1>
+
+<p>This document includes all code required to generate the figures and results presented in our manuscript.</p>
+
+<p>(1) load dependencies</p>
+
+<pre><code class="r">library(geometry)
+</code></pre>
+
+<pre><code>## Loading required package: magic
+## Loading required package: abind
+</code></pre>
+
+<pre><code class="r">library(geiger)
+</code></pre>
+
+<pre><code>## Loading required package: ape
+</code></pre>
+
+<pre><code class="r">library(pcaMethods)
+</code></pre>
+
+<pre><code>## Loading required package: Biobase
+## Loading required package: BiocGenerics
+## Loading required package: parallel
+## 
+## Attaching package: &#39;BiocGenerics&#39;
+## 
+## The following objects are masked from &#39;package:parallel&#39;:
+## 
+##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+##     clusterExport, clusterMap, parApply, parCapply, parLapply,
+##     parLapplyLB, parRapply, parSapply, parSapplyLB
+## 
+## The following object is masked from &#39;package:stats&#39;:
+## 
+##     xtabs
+## 
+## The following objects are masked from &#39;package:base&#39;:
+## 
+##     anyDuplicated, append, as.data.frame, as.vector, cbind,
+##     colnames, do.call, duplicated, eval, evalq, Filter, Find, get,
+##     intersect, is.unsorted, lapply, Map, mapply, match, mget,
+##     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+##     rbind, Reduce, rep.int, rownames, sapply, setdiff, sort,
+##     table, tapply, union, unique, unlist
+## 
+## Welcome to Bioconductor
+## 
+##     Vignettes contain introductory material; view with
+##     &#39;browseVignettes()&#39;. To cite Bioconductor, see
+##     &#39;citation(&quot;Biobase&quot;)&#39;, and for packages &#39;citation(&quot;pkgname&quot;)&#39;.
+## 
+## Loading required package: Rcpp
+## 
+## Attaching package: &#39;pcaMethods&#39;
+## 
+## The following object is masked from &#39;package:stats&#39;:
+## 
+##     loadings
+</code></pre>
+
+<pre><code class="r">library(MASS)
+library(TreeSim)
+</code></pre>
+
+<p>Get the trait data.</p>
+
+<pre><code class="r">
+# get trait data
+sqMorphA &lt;- read.csv(&quot;data/squamorph_v2.csv&quot;, na.strings = c(&quot;&quot;, &quot; &quot;, &quot;.&quot;))
+
+# pull out just continuously distributed characters
+sqMorphContinuous &lt;- sqMorphA[1:384, 4:26]
+
+# pull out species names
+species &lt;- as.character(sqMorphA[1:384, 1])
+</code></pre>
+
+<p>Some of the names in &#39;species&#39; don&#39;t match anything in the taxonomy for various reasons - mainly, they are outdated. The following lines substitute for some of the names. There are notes after each one. In some cases, the match is not exact - but all matches are close enough to place species in the correct clade for our analyses.</p>
+
+<pre><code class="r">
+# manual translation of outdated names
+altSpecies &lt;- species
+altSpecies[species == &quot;Cosymbotus&quot;] &lt;- &quot;Hemidactylus craspedotus&quot;  # former monotypic genus
+altSpecies[species == &quot;Gecko&quot;] &lt;- &quot;Gekko albofasciolatus&quot;  # arbitrary
+altSpecies[species == &quot;Geckonia&quot;] &lt;- &quot;Tarentola chazaliae&quot;  # former monotypic genus
+altSpecies[species == &quot;Microscalabo&quot;] &lt;- &quot;Lygodactylus bivittis&quot;  # former monotypic genus
+altSpecies[species == &quot;Palmatogecko&quot;] &lt;- &quot;Pachydactylus vanzyli&quot;  # former genus w 2 species
+altSpecies[species == &quot;Tenuidactylu&quot;] &lt;- &quot;Cyrtopodion caspium&quot;  # not sure what happened here
+altSpecies[species == &quot;Teratolepis&quot;] &lt;- &quot;Hemidactylus albofasciatus&quot;  # small genus absorbed into hemidac?
+altSpecies[species == &quot;Chamaeleojax&quot;] &lt;- &quot;Trioceros jacksonii&quot;  # reclassified
+altSpecies[species == &quot;Chamaeleorhi&quot;] &lt;- &quot;Furcifer rhinoceratus&quot;  # has to be? rhi?
+altSpecies[species == &quot;amphibbarbat&quot;] &lt;- &quot;Pogona barbata&quot;  # I am pretty sure these three are correct
+altSpecies[species == &quot;amphibisolep&quot;] &lt;- &quot;Ctenophorus isolepis&quot;  #
+altSpecies[species == &quot;amphibnuchal&quot;] &lt;- &quot;Ctenophorus nuchalis&quot;  #
+# I think &#39;Stellio&#39; is correct - the listed species has a synonym of Stellio
+# stellio
+altSpecies[species == &quot;Sator&quot;] &lt;- &quot;Sceloporus angustus&quot;  #
+altSpecies[species == &quot;Scelopmagist&quot;] &lt;- &quot;Sceloporus magister&quot;  #
+altSpecies[species == &quot;Scelopoccide&quot;] &lt;- &quot;Sceloporus occidentalis&quot;  #
+altSpecies[species == &quot;Sceloporussi&quot;] &lt;- &quot;Sceloporus rufidorsum&quot;  # I have no idea what this might be, but it&#39;s in the right genus at least
+altSpecies[species == &quot;Aperopristis&quot;] &lt;- &quot;Leiosaurus catamarcensis&quot;  # old name
+altSpecies[species == &quot;Aptycholaemu&quot;] &lt;- &quot;Anisolepis longicauda&quot;  # old name
+altSpecies[species == &quot;Chamaeleolis&quot;] &lt;- &quot;Anolis chamaeleonides&quot;  # old name
+altSpecies[species == &quot;Chamaelinoro&quot;] &lt;- &quot;Anolis barbouri&quot;  # old name
+altSpecies[species == &quot;Phenacosauru&quot;] &lt;- &quot;Anolis bellipeniculus&quot;  # old name
+altSpecies[species == &quot;Ophryoessoid&quot;] &lt;- &quot;Stenocercus caducus&quot;  # old name
+altSpecies[species == &quot;Proctotrectu&quot;] &lt;- &quot;Stenocercus pectinatus&quot;  # old name - might be something else
+altSpecies[species == &quot;Tropidurusto&quot;] &lt;- &quot;Tropidurus torquatus&quot;  # 
+altSpecies[species == &quot;Sauresia&quot;] &lt;- &quot;Celestus agasepsoides&quot;  # old name
+altSpecies[species == &quot;Wetmorena&quot;] &lt;- &quot;Celestus haetianus&quot;  # i think this is exact
+altSpecies[species == &quot;Pelamis&quot;] &lt;- &quot;Hydrophis curtus&quot;  # 
+altSpecies[species == &quot;Python&quot;] &lt;- &quot;Python molurus&quot;  # 
+altSpecies[species == &quot;Zaocys&quot;] &lt;- &quot;Ptyas fusca&quot;  # 
+altSpecies[species == &quot;Aporosaura&quot;] &lt;- &quot;Meroles anchietae&quot;  # exact
+altSpecies[species == &quot;Meroles&quot;] &lt;- &quot;Meroles ctenodactylus&quot;  # choosing different species
+altSpecies[species == &quot;Cabrita&quot;] &lt;- &quot;Ophisops leschenaultii&quot;  # old genus
+altSpecies[species == &quot;Lacertalep&quot;] &lt;- &quot;Timon lepidus&quot;  # must be correct, a real trick
+altSpecies[species == &quot;Platyplacopu&quot;] &lt;- &quot;Takydromus intermedius&quot;  # 
+altSpecies[species == &quot;Anops&quot;] &lt;- &quot;Amphisbaena acrobeles&quot;  # 
+altSpecies[species == &quot;Leposternon&quot;] &lt;- &quot;Amphisbaena cerradensis&quot;  # 
+altSpecies[species == &quot;Pantodactylu&quot;] &lt;- &quot;Cercosaura quadrilineata&quot;  # 
+altSpecies[species == &quot;Prionodactyl&quot;] &lt;- &quot;Cercosaura argulus&quot;  # 
+altSpecies[species == &quot;Anotis&quot;] &lt;- &quot;Nannoscincus gracilis&quot;  # could be other things but all lygosomines
+altSpecies[species == &quot;Apterygodon&quot;] &lt;- &quot;Dasia vittata&quot;  # only hit
+altSpecies[species == &quot;Riopa&quot;] &lt;- &quot;Ablepharus pannonicus&quot;  # honestly no idea - tons of things
+altSpecies[species == &quot;Siaphos&quot;] &lt;- &quot;Saiphos equalis&quot;  # 
+altSpecies[species == &quot;Trachydosaur&quot;] &lt;- &quot;Tiliqua rugosa&quot;  # 
+altSpecies[species == &quot;Fitzsimonsia&quot;] &lt;- &quot;Typhlacontias brevipes&quot;  # I think - locality matches, seems right
+altSpecies[species == &quot;Typhlacontia&quot;] &lt;- &quot;Typhlacontias gracilis&quot;  # Random different species in genus
+altSpecies[species == &quot;Neoseps&quot;] &lt;- &quot;Plestiodon reynoldsi&quot;  # 
+altSpecies[381] &lt;- &quot;Platysaurus capensis&quot;  # just choosing a different species
+altSpecies[384] &lt;- &quot;Lygosoma albopunctata&quot;  # just choosing a different species
+</code></pre>
+
+<p>We now use the taxonomy from Burbrink and Pyron to assign our specimens to clades. </p>
+
+<pre><code class="r">
+# read in the taxonomy file
+tnrs &lt;- read.csv(&quot;data/squam_TNRS.csv&quot;)
+
+# assign family, subfamily spMatchForFamily saves the species used for the
+# matching assignment
+family &lt;- character(length = length(altSpecies))
+subfam &lt;- character(length = length(altSpecies))
+spMatchForFamily &lt;- character(length = length(altSpecies))
+for (i in 1:length(altSpecies)) {
+    mm &lt;- agrep(altSpecies[i], tnrs[, 2])
+    if (length(mm) &gt; 0) {
+        aa &lt;- adist(altSpecies[i], tnrs[mm, 2], partial = T)
+        md &lt;- which(aa[1, ] == min(aa[1, ]))
+        spMatchForFamily[i] &lt;- as.character(tnrs[mm, 2][md[1]])
+        family[i] &lt;- as.character(tnrs[mm, 3][md[1]])
+        subfam[i] &lt;- as.character(tnrs[mm, 4][md[1]])
+    }
+}
+
+cbind(species, altSpecies, spMatchForFamily, subfam, family)
+</code></pre>
+
+<pre><code>##        species                altSpecies                  
+##   [1,] &quot;Aelurascalab&quot;         &quot;Aelurascalab&quot;              
+##   [2,] &quot;Coleonyx&quot;             &quot;Coleonyx&quot;                  
+##   [3,] &quot;Eublepharis&quot;          &quot;Eublepharis&quot;               
+##   [4,] &quot;Goniurosauru&quot;         &quot;Goniurosauru&quot;              
+##   [5,] &quot;Hemitheconyx&quot;         &quot;Hemitheconyx&quot;              
+##   [6,] &quot;Holodactylus&quot;         &quot;Holodactylus&quot;              
+##   [7,] &quot;Afroedura&quot;            &quot;Afroedura&quot;                 
+##   [8,] &quot;Agamura&quot;              &quot;Agamura&quot;                   
+##   [9,] &quot;Ailuronyx&quot;            &quot;Ailuronyx&quot;                 
+##  [10,] &quot;Alsophylax&quot;           &quot;Alsophylax&quot;                
+##  [11,] &quot;Aristelliger&quot;         &quot;Aristelliger&quot;              
+##  [12,] &quot;Asaccus&quot;              &quot;Asaccus&quot;                   
+##  [13,] &quot;Bunopus&quot;              &quot;Bunopus&quot;                   
+##  [14,] &quot;Chondrodacty&quot;         &quot;Chondrodacty&quot;              
+##  [15,] &quot;Cnemaspis&quot;            &quot;Cnemaspis&quot;                 
+##  [16,] &quot;Coleodactylu&quot;         &quot;Coleodactylu&quot;              
+##  [17,] &quot;Colopus&quot;              &quot;Colopus&quot;                   
+##  [18,] &quot;Cosymbotus&quot;           &quot;Hemidactylus craspedotus&quot;  
+##  [19,] &quot;Crossobamon&quot;          &quot;Crossobamon&quot;               
+##  [20,] &quot;Cyrtodactylu&quot;         &quot;Cyrtodactylu&quot;              
+##  [21,] &quot;Cyrtopodion&quot;          &quot;Cyrtopodion&quot;               
+##  [22,] &quot;Gecko&quot;                &quot;Gekko albofasciolatus&quot;     
+##  [23,] &quot;Geckolepis&quot;           &quot;Geckolepis&quot;                
+##  [24,] &quot;Geckonia&quot;             &quot;Tarentola chazaliae&quot;       
+##  [25,] &quot;Gehyra&quot;               &quot;Gehyra&quot;                    
+##  [26,] &quot;Gonatodes&quot;            &quot;Gonatodes&quot;                 
+##  [27,] &quot;Hemidactylus&quot;         &quot;Hemidactylus&quot;              
+##  [28,] &quot;Hemiphylloda&quot;         &quot;Hemiphylloda&quot;              
+##  [29,] &quot;Heteronotia&quot;          &quot;Heteronotia&quot;               
+##  [30,] &quot;Homonota&quot;             &quot;Homonota&quot;                  
+##  [31,] &quot;Homopholis&quot;           &quot;Homopholis&quot;                
+##  [32,] &quot;Lepidoblepha&quot;         &quot;Lepidoblepha&quot;              
+##  [33,] &quot;Lepidodactyl&quot;         &quot;Lepidodactyl&quot;              
+##  [34,] &quot;Luperosaurus&quot;         &quot;Luperosaurus&quot;              
+##  [35,] &quot;Lygodactylus&quot;         &quot;Lygodactylus&quot;              
+##  [36,] &quot;Microscalabo&quot;         &quot;Lygodactylus bivittis&quot;     
+##  [37,] &quot;Nactus&quot;               &quot;Nactus&quot;                    
+##  [38,] &quot;Pachydactylu&quot;         &quot;Pachydactylu&quot;              
+##  [39,] &quot;Palmatogecko&quot;         &quot;Pachydactylus vanzyli&quot;     
+##  [40,] &quot;Paroedura&quot;            &quot;Paroedura&quot;                 
+##  [41,] &quot;Perochirus&quot;           &quot;Perochirus&quot;                
+##  [42,] &quot;Phelsuma&quot;             &quot;Phelsuma&quot;                  
+##  [43,] &quot;Phyllodactyl&quot;         &quot;Phyllodactyl&quot;              
+##  [44,] &quot;Pseudogekko&quot;          &quot;Pseudogekko&quot;               
+##  [45,] &quot;Pseudogonato&quot;         &quot;Pseudogonato&quot;              
+##  [46,] &quot;Ptenopus&quot;             &quot;Ptenopus&quot;                  
+##  [47,] &quot;Ptychozoon&quot;           &quot;Ptychozoon&quot;                
+##  [48,] &quot;Ptyodactylus&quot;         &quot;Ptyodactylus&quot;              
+##  [49,] &quot;Quedenfeldti&quot;         &quot;Quedenfeldti&quot;              
+##  [50,] &quot;Rhoptropus&quot;           &quot;Rhoptropus&quot;                
+##  [51,] &quot;Saurodactylu&quot;         &quot;Saurodactylu&quot;              
+##  [52,] &quot;Sphaerodacty&quot;         &quot;Sphaerodacty&quot;              
+##  [53,] &quot;Stenodactylu&quot;         &quot;Stenodactylu&quot;              
+##  [54,] &quot;Tarentola&quot;            &quot;Tarentola&quot;                 
+##  [55,] &quot;Tenuidactylu&quot;         &quot;Cyrtopodion caspium&quot;       
+##  [56,] &quot;Teratolepis&quot;          &quot;Hemidactylus albofasciatus&quot;
+##  [57,] &quot;Teratoscincu&quot;         &quot;Teratoscincu&quot;              
+##  [58,] &quot;Thecadactylu&quot;         &quot;Thecadactylu&quot;              
+##  [59,] &quot;Tropicolotes&quot;         &quot;Tropicolotes&quot;              
+##  [60,] &quot;Uroplatus&quot;            &quot;Uroplatus&quot;                 
+##  [61,] &quot;Aprasia&quot;              &quot;Aprasia&quot;                   
+##  [62,] &quot;Bavayia&quot;              &quot;Bavayia&quot;                   
+##  [63,] &quot;Crenadactylu&quot;         &quot;Crenadactylu&quot;              
+##  [64,] &quot;Delma&quot;                &quot;Delma&quot;                     
+##  [65,] &quot;Diplodactylu&quot;         &quot;Diplodactylu&quot;              
+##  [66,] &quot;Eurydactylod&quot;         &quot;Eurydactylod&quot;              
+##  [67,] &quot;Hoplodactylu&quot;         &quot;Hoplodactylu&quot;              
+##  [68,] &quot;Lialis&quot;               &quot;Lialis&quot;                    
+##  [69,] &quot;Naultinus&quot;            &quot;Naultinus&quot;                 
+##  [70,] &quot;Nephrurus&quot;            &quot;Nephrurus&quot;                 
+##  [71,] &quot;Oedura&quot;               &quot;Oedura&quot;                    
+##  [72,] &quot;Paradelma&quot;            &quot;Paradelma&quot;                 
+##  [73,] &quot;Phyllurus&quot;            &quot;Phyllurus&quot;                 
+##  [74,] &quot;Pygopus&quot;              &quot;Pygopus&quot;                   
+##  [75,] &quot;Rhacodactylu&quot;         &quot;Rhacodactylu&quot;              
+##  [76,] &quot;Dibamus&quot;              &quot;Dibamus&quot;                   
+##  [77,] &quot;Uromastyx&quot;            &quot;Uromastyx&quot;                 
+##  [78,] &quot;Bradypodion&quot;          &quot;Bradypodion&quot;               
+##  [79,] &quot;Brookesia&quot;            &quot;Brookesia&quot;                 
+##  [80,] &quot;Chamaeleojax&quot;         &quot;Trioceros jacksonii&quot;       
+##  [81,] &quot;Chamaeleorhi&quot;         &quot;Furcifer rhinoceratus&quot;     
+##  [82,] &quot;Rhampholeon&quot;          &quot;Rhampholeon&quot;               
+##  [83,] &quot;Leiolepis&quot;            &quot;Leiolepis&quot;                 
+##  [84,] &quot;Acanthosaura&quot;         &quot;Acanthosaura&quot;              
+##  [85,] &quot;Agama&quot;                &quot;Agama&quot;                     
+##  [86,] &quot;amphibbarbat&quot;         &quot;Pogona barbata&quot;            
+##  [87,] &quot;amphibisolep&quot;         &quot;Ctenophorus isolepis&quot;      
+##  [88,] &quot;amphibnuchal&quot;         &quot;Ctenophorus nuchalis&quot;      
+##  [89,] &quot;Aphaniotis&quot;           &quot;Aphaniotis&quot;                
+##  [90,] &quot;Calotes&quot;              &quot;Calotes&quot;                   
+##  [91,] &quot;Ceratophora&quot;          &quot;Ceratophora&quot;               
+##  [92,] &quot;Chlamydosaur&quot;         &quot;Chlamydosaur&quot;              
+##  [93,] &quot;Cophotis&quot;             &quot;Cophotis&quot;                  
+##  [94,] &quot;Diporiphora&quot;          &quot;Diporiphora&quot;               
+##  [95,] &quot;Draco&quot;                &quot;Draco&quot;                     
+##  [96,] &quot;Gonocephalus&quot;         &quot;Gonocephalus&quot;              
+##  [97,] &quot;Hydrosaurus&quot;          &quot;Hydrosaurus&quot;               
+##  [98,] &quot;Hypsilurus&quot;           &quot;Hypsilurus&quot;                
+##  [99,] &quot;Japalura&quot;             &quot;Japalura&quot;                  
+## [100,] &quot;Lophognathus&quot;         &quot;Lophognathus&quot;              
+## [101,] &quot;Moloch&quot;               &quot;Moloch&quot;                    
+## [102,] &quot;Oriocalotes&quot;          &quot;Oriocalotes&quot;               
+## [103,] &quot;Otocryptis&quot;           &quot;Otocryptis&quot;                
+## [104,] &quot;Phrynocephal&quot;         &quot;Phrynocephal&quot;              
+## [105,] &quot;Physignathus&quot;         &quot;Physignathus&quot;              
+## [106,] &quot;Psammophilus&quot;         &quot;Psammophilus&quot;              
+## [107,] &quot;Pseudotrapel&quot;         &quot;Pseudotrapel&quot;              
+## [108,] &quot;Salea&quot;                &quot;Salea&quot;                     
+## [109,] &quot;Sitana&quot;               &quot;Sitana&quot;                    
+## [110,] &quot;Stellio&quot;              &quot;Stellio&quot;                   
+## [111,] &quot;Trapelus&quot;             &quot;Trapelus&quot;                  
+## [112,] &quot;Typanocrypti&quot;         &quot;Typanocrypti&quot;              
+## [113,] &quot;Leiocephalus&quot;         &quot;Leiocephalus&quot;              
+## [114,] &quot;Callisaurus&quot;          &quot;Callisaurus&quot;               
+## [115,] &quot;Cophosaurust&quot;         &quot;Cophosaurust&quot;              
+## [116,] &quot;Holbrookia&quot;           &quot;Holbrookia&quot;                
+## [117,] &quot;Petrosaurus&quot;          &quot;Petrosaurus&quot;               
+## [118,] &quot;Phrynosoma&quot;           &quot;Phrynosoma&quot;                
+## [119,] &quot;Sator&quot;                &quot;Sceloporus angustus&quot;       
+## [120,] &quot;Scelopmagist&quot;         &quot;Sceloporus magister&quot;       
+## [121,] &quot;Scelopoccide&quot;         &quot;Sceloporus occidentalis&quot;   
+## [122,] &quot;Sceloporussi&quot;         &quot;Sceloporus rufidorsum&quot;     
+## [123,] &quot;Uma&quot;                  &quot;Uma&quot;                       
+## [124,] &quot;Urosaurus&quot;            &quot;Urosaurus&quot;                 
+## [125,] &quot;Utastans&quot;             &quot;Utastans&quot;                  
+## [126,] &quot;Basiliscus&quot;           &quot;Basiliscus&quot;                
+## [127,] &quot;Corytophanes&quot;         &quot;Corytophanes&quot;              
+## [128,] &quot;Laemanctus&quot;           &quot;Laemanctus&quot;                
+## [129,] &quot;Amblyrhynchu&quot;         &quot;Amblyrhynchu&quot;              
+## [130,] &quot;Brachylophus&quot;         &quot;Brachylophus&quot;              
+## [131,] &quot;Conolophus&quot;           &quot;Conolophus&quot;                
+## [132,] &quot;Ctenosauracl&quot;         &quot;Ctenosauracl&quot;              
+## [133,] &quot;Ctenosaurape&quot;         &quot;Ctenosaurape&quot;              
+## [134,] &quot;Cyclura&quot;              &quot;Cyclura&quot;                   
+## [135,] &quot;Dipsosaurus&quot;          &quot;Dipsosaurus&quot;               
+## [136,] &quot;Iguana&quot;               &quot;Iguana&quot;                    
+## [137,] &quot;Sauromalus&quot;           &quot;Sauromalus&quot;                
+## [138,] &quot;Anisolepis&quot;           &quot;Anisolepis&quot;                
+## [139,] &quot;Anolisbaraho&quot;         &quot;Anolisbaraho&quot;              
+## [140,] &quot;Anolisgundla&quot;         &quot;Anolisgundla&quot;              
+## [141,] &quot;Anolispulch&quot;          &quot;Anolispulch&quot;               
+## [142,] &quot;Anolisvalenc&quot;         &quot;Anolisvalenc&quot;              
+## [143,] &quot;Aperopristis&quot;         &quot;Leiosaurus catamarcensis&quot;  
+## [144,] &quot;Aptycholaemu&quot;         &quot;Anisolepis longicauda&quot;     
+## [145,] &quot;Chamaeleolis&quot;         &quot;Anolis chamaeleonides&quot;     
+## [146,] &quot;Chamaelinoro&quot;         &quot;Anolis barbouri&quot;           
+## [147,] &quot;Diplolaemus&quot;          &quot;Diplolaemus&quot;               
+## [148,] &quot;Enyalius&quot;             &quot;Enyalius&quot;                  
+## [149,] &quot;Leiosaurus&quot;           &quot;Leiosaurus&quot;                
+## [150,] &quot;Phenacosauru&quot;         &quot;Anolis bellipeniculus&quot;     
+## [151,] &quot;Polychrus&quot;            &quot;Polychrus&quot;                 
+## [152,] &quot;Pristidactyl&quot;         &quot;Pristidactyl&quot;              
+## [153,] &quot;Urostrophus&quot;          &quot;Urostrophus&quot;               
+## [154,] &quot;Enyaliodes&quot;           &quot;Enyaliodes&quot;                
+## [155,] &quot;Hoplocercus&quot;          &quot;Hoplocercus&quot;               
+## [156,] &quot;Morunasaurus&quot;         &quot;Morunasaurus&quot;              
+## [157,] &quot;Chalaradon&quot;           &quot;Chalaradon&quot;                
+## [158,] &quot;Oplurus&quot;              &quot;Oplurus&quot;                   
+## [159,] &quot;Liolaemusbue&quot;         &quot;Liolaemusbue&quot;              
+## [160,] &quot;Liolaemusten&quot;         &quot;Liolaemusten&quot;              
+## [161,] &quot;Phymaturus&quot;           &quot;Phymaturus&quot;                
+## [162,] &quot;Crotaphythus&quot;         &quot;Crotaphythus&quot;              
+## [163,] &quot;Gambelia&quot;             &quot;Gambelia&quot;                  
+## [164,] &quot;Ctenoblephar&quot;         &quot;Ctenoblephar&quot;              
+## [165,] &quot;Ophryoessoid&quot;         &quot;Stenocercus caducus&quot;       
+## [166,] &quot;Plica&quot;                &quot;Plica&quot;                     
+## [167,] &quot;Proctotrectu&quot;         &quot;Stenocercus pectinatus&quot;    
+## [168,] &quot;Stenocercus&quot;          &quot;Stenocercus&quot;               
+## [169,] &quot;Strobilurus&quot;          &quot;Strobilurus&quot;               
+## [170,] &quot;Tropidurushi&quot;         &quot;Tropidurushi&quot;              
+## [171,] &quot;Tropidurusto&quot;         &quot;Tropidurus torquatus&quot;      
+## [172,] &quot;Uracentron&quot;           &quot;Uracentron&quot;                
+## [173,] &quot;Uranoscodon&quot;          &quot;Uranoscodon&quot;               
+## [174,] &quot;Xenosaurus&quot;           &quot;Xenosaurus&quot;                
+## [175,] &quot;Heloderma&quot;            &quot;Heloderma&quot;                 
+## [176,] &quot;Abronia&quot;              &quot;Abronia&quot;                   
+## [177,] &quot;Anguis&quot;               &quot;Anguis&quot;                    
+## [178,] &quot;Anniella&quot;             &quot;Anniella&quot;                  
+## [179,] &quot;Barisia&quot;              &quot;Barisia&quot;                   
+## [180,] &quot;Celestus&quot;             &quot;Celestus&quot;                  
+## [181,] &quot;Diploglossus&quot;         &quot;Diploglossus&quot;              
+## [182,] &quot;Elgaria&quot;              &quot;Elgaria&quot;                   
+## [183,] &quot;Gerrhonotus&quot;          &quot;Gerrhonotus&quot;               
+## [184,] &quot;Mesaspis&quot;             &quot;Mesaspis&quot;                  
+## [185,] &quot;Ophiodes&quot;             &quot;Ophiodes&quot;                  
+## [186,] &quot;Ophisaurus&quot;           &quot;Ophisaurus&quot;                
+## [187,] &quot;Sauresia&quot;             &quot;Celestus agasepsoides&quot;     
+## [188,] &quot;Wetmorena&quot;            &quot;Celestus haetianus&quot;        
+## [189,] &quot;Lanthanotus&quot;          &quot;Lanthanotus&quot;               
+## [190,] &quot;Varanusacan&quot;          &quot;Varanusacan&quot;               
+## [191,] &quot;Leptotyphlop&quot;         &quot;Leptotyphlop&quot;              
+## [192,] &quot;Liotyphlops&quot;          &quot;Liotyphlops&quot;               
+## [193,] &quot;Ramphotyphlo&quot;         &quot;Ramphotyphlo&quot;              
+## [194,] &quot;Typhlops&quot;             &quot;Typhlops&quot;                  
+## [195,] &quot;Achalinus&quot;            &quot;Achalinus&quot;                 
+## [196,] &quot;Acrochordus&quot;          &quot;Acrochordus&quot;               
+## [197,] &quot;Agkistrodon&quot;          &quot;Agkistrodon&quot;               
+## [198,] &quot;Anilius&quot;              &quot;Anilius&quot;                   
+## [199,] &quot;Atheris&quot;              &quot;Atheris&quot;                   
+## [200,] &quot;Atractaspis&quot;          &quot;Atractaspis&quot;               
+## [201,] &quot;Austrelaps&quot;           &quot;Austrelaps&quot;                
+## [202,] &quot;Bitis&quot;                &quot;Bitis&quot;                     
+## [203,] &quot;Cerberus&quot;             &quot;Cerberus&quot;                  
+## [204,] &quot;Charina&quot;              &quot;Charina&quot;                   
+## [205,] &quot;Chironius&quot;            &quot;Chironius&quot;                 
+## [206,] &quot;Coluber&quot;              &quot;Coluber&quot;                   
+## [207,] &quot;Crotalus&quot;             &quot;Crotalus&quot;                  
+## [208,] &quot;Cylindrophis&quot;         &quot;Cylindrophis&quot;              
+## [209,] &quot;Elaphe&quot;               &quot;Elaphe&quot;                    
+## [210,] &quot;Epicrates&quot;            &quot;Epicrates&quot;                 
+## [211,] &quot;Eryx&quot;                 &quot;Eryx&quot;                      
+## [212,] &quot;Heterodon&quot;            &quot;Heterodon&quot;                 
+## [213,] &quot;Laticauda&quot;            &quot;Laticauda&quot;                 
+## [214,] &quot;Liopeltis&quot;            &quot;Liopeltis&quot;                 
+## [215,] &quot;Loxocemus&quot;            &quot;Loxocemus&quot;                 
+## [216,] &quot;Naja&quot;                 &quot;Naja&quot;                      
+## [217,] &quot;Nerodia&quot;              &quot;Nerodia&quot;                   
+## [218,] &quot;Oligodon&quot;             &quot;Oligodon&quot;                  
+## [219,] &quot;Opheodrys&quot;            &quot;Opheodrys&quot;                 
+## [220,] &quot;Oxybelis&quot;             &quot;Oxybelis&quot;                  
+## [221,] &quot;Pelamis&quot;              &quot;Hydrophis curtus&quot;          
+## [222,] &quot;Python&quot;               &quot;Python molurus&quot;            
+## [223,] &quot;Rhinophis&quot;            &quot;Rhinophis&quot;                 
+## [224,] &quot;Sistrurus&quot;            &quot;Sistrurus&quot;                 
+## [225,] &quot;Storeria&quot;             &quot;Storeria&quot;                  
+## [226,] &quot;Thamnophis&quot;           &quot;Thamnophis&quot;                
+## [227,] &quot;Tropidophis&quot;          &quot;Tropidophis&quot;               
+## [228,] &quot;Vipera&quot;               &quot;Vipera&quot;                    
+## [229,] &quot;Xenodon&quot;              &quot;Xenodon&quot;                   
+## [230,] &quot;Xenopeltis&quot;           &quot;Xenopeltis&quot;                
+## [231,] &quot;Zaocys&quot;               &quot;Ptyas fusca&quot;               
+## [232,] &quot;Acanthodacty&quot;         &quot;Acanthodacty&quot;              
+## [233,] &quot;Adolfus&quot;              &quot;Adolfus&quot;                   
+## [234,] &quot;Algyroides&quot;           &quot;Algyroides&quot;                
+## [235,] &quot;Aporosaura&quot;           &quot;Meroles anchietae&quot;         
+## [236,] &quot;Cabrita&quot;              &quot;Ophisops leschenaultii&quot;    
+## [237,] &quot;Eremias&quot;              &quot;Eremias&quot;                   
+## [238,] &quot;Gallotia&quot;             &quot;Gallotia&quot;                  
+## [239,] &quot;Gastropholis&quot;         &quot;Gastropholis&quot;              
+## [240,] &quot;Heliobolus&quot;           &quot;Heliobolus&quot;                
+## [241,] &quot;Holaspis&quot;             &quot;Holaspis&quot;                  
+## [242,] &quot;Ichnotropis&quot;          &quot;Ichnotropis&quot;               
+## [243,] &quot;Lacertaagili&quot;         &quot;Lacertaagili&quot;              
+## [244,] &quot;Lacertalep&quot;           &quot;Timon lepidus&quot;             
+## [245,] &quot;Latastia&quot;             &quot;Latastia&quot;                  
+## [246,] &quot;Meroles&quot;              &quot;Meroles ctenodactylus&quot;     
+## [247,] &quot;Mesalina&quot;             &quot;Mesalina&quot;                  
+## [248,] &quot;Nucras&quot;               &quot;Nucras&quot;                    
+## [249,] &quot;Ophisops&quot;             &quot;Ophisops&quot;                  
+## [250,] &quot;Pedioplanus&quot;          &quot;Pedioplanus&quot;               
+## [251,] &quot;Philochortus&quot;         &quot;Philochortus&quot;              
+## [252,] &quot;Platyplacopu&quot;         &quot;Takydromus intermedius&quot;    
+## [253,] &quot;Podarcis&quot;             &quot;Podarcis&quot;                  
+## [254,] &quot;Poromera&quot;             &quot;Poromera&quot;                  
+## [255,] &quot;Psammodromus&quot;         &quot;Psammodromus&quot;              
+## [256,] &quot;Pseuderemias&quot;         &quot;Pseuderemias&quot;              
+## [257,] &quot;Takydromus&quot;           &quot;Takydromus&quot;                
+## [258,] &quot;Tropidosaura&quot;         &quot;Tropidosaura&quot;              
+## [259,] &quot;Rhineura&quot;             &quot;Rhineura&quot;                  
+## [260,] &quot;Agamodon&quot;             &quot;Agamodon&quot;                  
+## [261,] &quot;Amphisbaena&quot;          &quot;Amphisbaena&quot;               
+## [262,] &quot;Anops&quot;                &quot;Amphisbaena acrobeles&quot;     
+## [263,] &quot;Bipes&quot;                &quot;Bipes&quot;                     
+## [264,] &quot;Blanus&quot;               &quot;Blanus&quot;                    
+## [265,] &quot;Chirindia&quot;            &quot;Chirindia&quot;                 
+## [266,] &quot;Cynisca&quot;              &quot;Cynisca&quot;                   
+## [267,] &quot;Dalophia&quot;             &quot;Dalophia&quot;                  
+## [268,] &quot;Diplometopon&quot;         &quot;Diplometopon&quot;              
+## [269,] &quot;Geocalamus&quot;           &quot;Geocalamus&quot;                
+## [270,] &quot;Leposternon&quot;          &quot;Amphisbaena cerradensis&quot;   
+## [271,] &quot;Loveridgea&quot;           &quot;Loveridgea&quot;                
+## [272,] &quot;Monopeltis&quot;           &quot;Monopeltis&quot;                
+## [273,] &quot;Trogonophis&quot;          &quot;Trogonophis&quot;               
+## [274,] &quot;Zygaspis&quot;             &quot;Zygaspis&quot;                  
+## [275,] &quot;Ameiva&quot;               &quot;Ameiva&quot;                    
+## [276,] &quot;Cnemidophoru&quot;         &quot;Cnemidophoru&quot;              
+## [277,] &quot;Crocodiliuru&quot;         &quot;Crocodiliuru&quot;              
+## [278,] &quot;Dicrodon&quot;             &quot;Dicrodon&quot;                  
+## [279,] &quot;Dracaena&quot;             &quot;Dracaena&quot;                  
+## [280,] &quot;Kentropyx&quot;            &quot;Kentropyx&quot;                 
+## [281,] &quot;Teius&quot;                &quot;Teius&quot;                     
+## [282,] &quot;Tupinambis&quot;           &quot;Tupinambis&quot;                
+## [283,] &quot;Alopoglossus&quot;         &quot;Alopoglossus&quot;              
+## [284,] &quot;Anadia&quot;               &quot;Anadia&quot;                    
+## [285,] &quot;Bachiabarb&quot;           &quot;Bachiabarb&quot;                
+## [286,] &quot;Echinosaura&quot;          &quot;Echinosaura&quot;               
+## [287,] &quot;Gymnodactylu&quot;         &quot;Gymnodactylu&quot;              
+## [288,] &quot;Gymnophthalm&quot;         &quot;Gymnophthalm&quot;              
+## [289,] &quot;Leposoma&quot;             &quot;Leposoma&quot;                  
+## [290,] &quot;Neusticurus&quot;          &quot;Neusticurus&quot;               
+## [291,] &quot;Opipeuter&quot;            &quot;Opipeuter&quot;                 
+## [292,] &quot;Pantodactylu&quot;         &quot;Cercosaura quadrilineata&quot;  
+## [293,] &quot;Pholidobolus&quot;         &quot;Pholidobolus&quot;              
+## [294,] &quot;Placosoma&quot;            &quot;Placosoma&quot;                 
+## [295,] &quot;Prionodactyl&quot;         &quot;Cercosaura argulus&quot;        
+## [296,] &quot;Proctoporus&quot;          &quot;Proctoporus&quot;               
+## [297,] &quot;Ptychoglossu&quot;         &quot;Ptychoglossu&quot;              
+## [298,] &quot;Tretioscincu&quot;         &quot;Tretioscincu&quot;              
+## [299,] &quot;Ablepharus&quot;           &quot;Ablepharus&quot;                
+## [300,] &quot;Afroablephar&quot;         &quot;Afroablephar&quot;              
+## [301,] &quot;Anomalopus&quot;           &quot;Anomalopus&quot;                
+## [302,] &quot;Anotis&quot;               &quot;Nannoscincus gracilis&quot;     
+## [303,] &quot;Apterygodon&quot;          &quot;Dasia vittata&quot;             
+## [304,] &quot;Asymblepharu&quot;         &quot;Asymblepharu&quot;              
+## [305,] &quot;Ateuchosauru&quot;         &quot;Ateuchosauru&quot;              
+## [306,] &quot;Cadedoniscin&quot;         &quot;Cadedoniscin&quot;              
+## [307,] &quot;Calyptotis&quot;           &quot;Calyptotis&quot;                
+## [308,] &quot;Carlia&quot;               &quot;Carlia&quot;                    
+## [309,] &quot;Coeranoscinc&quot;         &quot;Coeranoscinc&quot;              
+## [310,] &quot;Cophoscincus&quot;         &quot;Cophoscincus&quot;              
+## [311,] &quot;Corucia&quot;              &quot;Corucia&quot;                   
+## [312,] &quot;Cryptoblepha&quot;         &quot;Cryptoblepha&quot;              
+## [313,] &quot;Ctenotusspal&quot;         &quot;Ctenotusspal&quot;              
+## [314,] &quot;Dasia&quot;                &quot;Dasia&quot;                     
+## [315,] &quot;Egernia&quot;              &quot;Egernia&quot;                   
+## [316,] &quot;Emoia&quot;                &quot;Emoia&quot;                     
+## [317,] &quot;Eremiascincu&quot;         &quot;Eremiascincu&quot;              
+## [318,] &quot;Eugongylus&quot;           &quot;Eugongylus&quot;                
+## [319,] &quot;Eumecia&quot;              &quot;Eumecia&quot;                   
+## [320,] &quot;Graciliscinc&quot;         &quot;Graciliscinc&quot;              
+## [321,] &quot;Hemiergis&quot;            &quot;Hemiergis&quot;                 
+## [322,] &quot;Lamprolepis&quot;          &quot;Lamprolepis&quot;               
+## [323,] &quot;Lampropholis&quot;         &quot;Lampropholis&quot;              
+## [324,] &quot;Leiolopisma&quot;          &quot;Leiolopisma&quot;               
+## [325,] &quot;Leptosiaphos&quot;         &quot;Leptosiaphos&quot;              
+## [326,] &quot;Lerista&quot;              &quot;Lerista&quot;                   
+## [327,] &quot;Lipinia&quot;              &quot;Lipinia&quot;                   
+## [328,] &quot;Lobulia&quot;              &quot;Lobulia&quot;                   
+## [329,] &quot;Lygisaurus&quot;           &quot;Lygisaurus&quot;                
+## [330,] &quot;Lygosoma&quot;             &quot;Lygosoma&quot;                  
+## [331,] &quot;Mabuya&quot;               &quot;Mabuya&quot;                    
+## [332,] &quot;Marmorospax&quot;          &quot;Marmorospax&quot;               
+## [333,] &quot;Menetia&quot;              &quot;Menetia&quot;                   
+## [334,] &quot;Morethia&quot;             &quot;Morethia&quot;                  
+## [335,] &quot;Nannoscincus&quot;         &quot;Nannoscincus&quot;              
+## [336,] &quot;Panaspis&quot;             &quot;Panaspis&quot;                  
+## [337,] &quot;Papuascincus&quot;         &quot;Papuascincus&quot;              
+## [338,] &quot;Prasinohaema&quot;         &quot;Prasinohaema&quot;              
+## [339,] &quot;Riopa&quot;                &quot;Ablepharus pannonicus&quot;     
+## [340,] &quot;Ristella&quot;             &quot;Ristella&quot;                  
+## [341,] &quot;Siaphos&quot;              &quot;Saiphos equalis&quot;           
+## [342,] &quot;Scincella&quot;            &quot;Scincella&quot;                 
+## [343,] &quot;Sigaloseps&quot;           &quot;Sigaloseps&quot;                
+## [344,] &quot;Sphenomorphu&quot;         &quot;Sphenomorphu&quot;              
+## [345,] &quot;Tiliqua&quot;              &quot;Tiliqua&quot;                   
+## [346,] &quot;Trachydosaur&quot;         &quot;Tiliqua rugosa&quot;            
+## [347,] &quot;Tribolonotus&quot;         &quot;Tribolonotus&quot;              
+## [348,] &quot;Tropidophoru&quot;         &quot;Tropidophoru&quot;              
+## [349,] &quot;Tropidoscinc&quot;         &quot;Tropidoscinc&quot;              
+## [350,] &quot;Androngo&quot;             &quot;Androngo&quot;                  
+## [351,] &quot;Brachymeles&quot;          &quot;Brachymeles&quot;               
+## [352,] &quot;Chalcides&quot;            &quot;Chalcides&quot;                 
+## [353,] &quot;Eumeces&quot;              &quot;Eumeces&quot;                   
+## [354,] &quot;Feylinia&quot;             &quot;Feylinia&quot;                  
+## [355,] &quot;Fitzsimonsia&quot;         &quot;Typhlacontias brevipes&quot;    
+## [356,] &quot;Melanoseps&quot;           &quot;Melanoseps&quot;                
+## [357,] &quot;Neoseps&quot;              &quot;Plestiodon reynoldsi&quot;      
+## [358,] &quot;Nessia&quot;               &quot;Nessia&quot;                    
+## [359,] &quot;Ophiomorus&quot;           &quot;Ophiomorus&quot;                
+## [360,] &quot;Paracontias&quot;          &quot;Paracontias&quot;               
+## [361,] &quot;Proscelotes&quot;          &quot;Proscelotes&quot;               
+## [362,] &quot;Scelotes&quot;             &quot;Scelotes&quot;                  
+## [363,] &quot;Scincopus&quot;            &quot;Scincopus&quot;                 
+## [364,] &quot;Scincus&quot;              &quot;Scincus&quot;                   
+## [365,] &quot;Sphenops&quot;             &quot;Sphenops&quot;                  
+## [366,] &quot;Typhlacontia&quot;         &quot;Typhlacontias gracilis&quot;    
+## [367,] &quot;Voeltzkowia&quot;          &quot;Voeltzkowia&quot;               
+## [368,] &quot;Acontias&quot;             &quot;Acontias&quot;                  
+## [369,] &quot;Typhlosaurus&quot;         &quot;Typhlosaurus&quot;              
+## [370,] &quot;Cricosaura&quot;           &quot;Cricosaura&quot;                
+## [371,] &quot;Lepidophyma&quot;          &quot;Lepidophyma&quot;               
+## [372,] &quot;Xantusia&quot;             &quot;Xantusia&quot;                  
+## [373,] &quot;Xantusiarive&quot;         &quot;Xantusiarive&quot;              
+## [374,] &quot;Chamaesaura&quot;          &quot;Chamaesaura&quot;               
+## [375,] &quot;Gerrhosaurus&quot;         &quot;Gerrhosaurus&quot;              
+## [376,] &quot;Tetradactylu&quot;         &quot;Tetradactylu&quot;              
+## [377,] &quot;Zonosaurus&quot;           &quot;Zonosaurus&quot;                
+## [378,] &quot;Cordylosauru&quot;         &quot;Cordylosauru&quot;              
+## [379,] &quot;Cordylus&quot;             &quot;Cordylus&quot;                  
+## [380,] &quot;Platysaurus&quot;          &quot;Platysaurus&quot;               
+## [381,] &quot;Platysaurus&quot;          &quot;Platysaurus capensis&quot;      
+## [382,] &quot;Pseudocordyl&quot;         &quot;Pseudocordyl&quot;              
+## [383,] &quot;Shinisaurus&quot;          &quot;Shinisaurus&quot;               
+## [384,] &quot;lygosoma(homolepida)&quot; &quot;Lygosoma albopunctata&quot;     
+##        spMatchForFamily                 subfam             
+##   [1,] &quot;Aeluroscalabotes felinus&quot;       &quot;Eublepharidae&quot;    
+##   [2,] &quot;Coleonyx brevis&quot;                &quot;Eublepharidae&quot;    
+##   [3,] &quot;Eublepharis angramainyu&quot;        &quot;Eublepharidae&quot;    
+##   [4,] &quot;Goniurosaurus araneus&quot;          &quot;Eublepharidae&quot;    
+##   [5,] &quot;Hemitheconyx caudicinctus&quot;      &quot;Eublepharidae&quot;    
+##   [6,] &quot;Holodactylus africanus&quot;         &quot;Eublepharidae&quot;    
+##   [7,] &quot;Afroedura africana&quot;             &quot;Gekkonidae&quot;       
+##   [8,] &quot;Agamura persica&quot;                &quot;Gekkonidae&quot;       
+##   [9,] &quot;Ailuronyx seychellensis&quot;        &quot;Gekkonidae&quot;       
+##  [10,] &quot;Alsophylax boehmei&quot;             &quot;Gekkonidae&quot;       
+##  [11,] &quot;Aristelliger barbouri&quot;          &quot;Sphaerodactylidae&quot;
+##  [12,] &quot;Asaccus andersoni&quot;              &quot;Phyllodactylidae&quot; 
+##  [13,] &quot;Bunopus crassicauda&quot;            &quot;Gekkonidae&quot;       
+##  [14,] &quot;Chondrodactylus angulifer&quot;      &quot;Gekkonidae&quot;       
+##  [15,] &quot;Cnemaspis affinis&quot;              &quot;Gekkonidae&quot;       
+##  [16,] &quot;Coleodactylus brachystoma&quot;      &quot;Sphaerodactylidae&quot;
+##  [17,] &quot;Colopus kochii&quot;                 &quot;Gekkonidae&quot;       
+##  [18,] &quot;Hemidactylus craspedotus&quot;       &quot;Gekkonidae&quot;       
+##  [19,] &quot;Crossobamon eversmanni&quot;         &quot;Gekkonidae&quot;       
+##  [20,] &quot;Cyrtodactylus aaroni&quot;           &quot;Gekkonidae&quot;       
+##  [21,] &quot;Cyrtopodion agamuroides&quot;        &quot;Gekkonidae&quot;       
+##  [22,] &quot;Gekko albofasciolatus&quot;          &quot;Gekkonidae&quot;       
+##  [23,] &quot;Geckolepis maculata&quot;            &quot;Gekkonidae&quot;       
+##  [24,] &quot;Tarentola chazaliae&quot;            &quot;Phyllodactylidae&quot; 
+##  [25,] &quot;Gehyra angusticaudata&quot;          &quot;Gekkonidae&quot;       
+##  [26,] &quot;Gonatodes albogularis&quot;          &quot;Sphaerodactylidae&quot;
+##  [27,] &quot;Hemidactylus aaronbaueri&quot;       &quot;Gekkonidae&quot;       
+##  [28,] &quot;Hemiphyllodactylus aurantiacus&quot; &quot;Gekkonidae&quot;       
+##  [29,] &quot;Heteronotia binoei&quot;             &quot;Gekkonidae&quot;       
+##  [30,] &quot;Homonota andicola&quot;              &quot;Phyllodactylidae&quot; 
+##  [31,] &quot;Homopholis fasciata&quot;            &quot;Gekkonidae&quot;       
+##  [32,] &quot;Lepidoblepharis buchwaldi&quot;      &quot;Sphaerodactylidae&quot;
+##  [33,] &quot;Lepidodactylus aureolineatus&quot;   &quot;Gekkonidae&quot;       
+##  [34,] &quot;Luperosaurus angliit&quot;           &quot;Gekkonidae&quot;       
+##  [35,] &quot;Lygodactylus angolensis&quot;        &quot;Gekkonidae&quot;       
+##  [36,] &quot;Lygodactylus bivittis&quot;          &quot;Gekkonidae&quot;       
+##  [37,] &quot;Nactus acutus&quot;                  &quot;Gekkonidae&quot;       
+##  [38,] &quot;Pachydactylus acuminatus&quot;       &quot;Gekkonidae&quot;       
+##  [39,] &quot;Pachydactylus vanzyli&quot;          &quot;Gekkonidae&quot;       
+##  [40,] &quot;Paroedura androyensis&quot;          &quot;Gekkonidae&quot;       
+##  [41,] &quot;Perochirus ateles&quot;              &quot;Gekkonidae&quot;       
+##  [42,] &quot;Phelsuma abbotti&quot;               &quot;Gekkonidae&quot;       
+##  [43,] &quot;Phyllodactylus angelensis&quot;      &quot;Phyllodactylidae&quot; 
+##  [44,] &quot;Pseudogekko brevipes&quot;           &quot;Gekkonidae&quot;       
+##  [45,] &quot;Pseudogonatodes barbouri&quot;       &quot;Sphaerodactylidae&quot;
+##  [46,] &quot;Ptenopus carpi&quot;                 &quot;Gekkonidae&quot;       
+##  [47,] &quot;Ptychozoon horsfieldii&quot;         &quot;Gekkonidae&quot;       
+##  [48,] &quot;Ptyodactylus guttatus&quot;          &quot;Phyllodactylidae&quot; 
+##  [49,] &quot;Quedenfeldtia moerens&quot;          &quot;Sphaerodactylidae&quot;
+##  [50,] &quot;Rhoptropus afer&quot;                &quot;Gekkonidae&quot;       
+##  [51,] &quot;Saurodactylus fasciatus&quot;        &quot;Sphaerodactylidae&quot;
+##  [52,] &quot;Sphaerodactylus altavelensis&quot;   &quot;Sphaerodactylidae&quot;
+##  [53,] &quot;Stenodactylus affinis&quot;          &quot;Gekkonidae&quot;       
+##  [54,] &quot;Tarentola albertschwartzi&quot;      &quot;Phyllodactylidae&quot; 
+##  [55,] &quot;Cyrtopodion caspium&quot;            &quot;Gekkonidae&quot;       
+##  [56,] &quot;Hemidactylus albofasciatus&quot;     &quot;Gekkonidae&quot;       
+##  [57,] &quot;Teratoscincus bedriagai&quot;        &quot;Sphaerodactylidae&quot;
+##  [58,] &quot;Thecadactylus oskrobapreinorum&quot; &quot;Phyllodactylidae&quot; 
+##  [59,] &quot;Tropiocolotes algericus&quot;        &quot;Gekkonidae&quot;       
+##  [60,] &quot;Uroplatus alluaudi&quot;             &quot;Gekkonidae&quot;       
+##  [61,] &quot;Aprasia aurita&quot;                 &quot;Pygopodidae&quot;      
+##  [62,] &quot;Bavayia crassicollis&quot;           &quot;Diplodactylidae&quot;  
+##  [63,] &quot;Crenadactylus ocellatus&quot;        &quot;Diplodactylidae&quot;  
+##  [64,] &quot;Delma australis&quot;                &quot;Pygopodidae&quot;      
+##  [65,] &quot;Diplodactylus calcicolus&quot;       &quot;Diplodactylidae&quot;  
+##  [66,] &quot;Eurydactylodes agricolae&quot;       &quot;Diplodactylidae&quot;  
+##  [67,] &quot;Hoplodactylus delcourti&quot;        &quot;Diplodactylidae&quot;  
+##  [68,] &quot;Lialis burtonis&quot;                &quot;Pygopodidae&quot;      
+##  [69,] &quot;Naultinus elegans&quot;              &quot;Diplodactylidae&quot;  
+##  [70,] &quot;Nephrurus amyae&quot;                &quot;Carphodactylidae&quot; 
+##  [71,] &quot;Oedura castelnaui&quot;              &quot;Diplodactylidae&quot;  
+##  [72,] &quot;Paradelma orientalis&quot;           &quot;Pygopodidae&quot;      
+##  [73,] &quot;Phyllurus amnicola&quot;             &quot;Carphodactylidae&quot; 
+##  [74,] &quot;Pygopus lepidopodus&quot;            &quot;Pygopodidae&quot;      
+##  [75,] &quot;Rhacodactylus auriculatus&quot;      &quot;Diplodactylidae&quot;  
+##  [76,] &quot;Dibamus alfredi&quot;                &quot;Dibamidae&quot;        
+##  [77,] &quot;Uromastyx acanthinura&quot;          &quot;Uromasticinae&quot;    
+##  [78,] &quot;Bradypodion atromontanum&quot;       &quot;Chamaeleoninae&quot;   
+##  [79,] &quot;Brookesia ambreensis&quot;           &quot;Brookesiinae&quot;     
+##  [80,] &quot;Trioceros jacksonii&quot;            &quot;Chamaeleoninae&quot;   
+##  [81,] &quot;Furcifer rhinoceratus&quot;          &quot;Chamaeleoninae&quot;   
+##  [82,] &quot;Rhampholeon acuminatus&quot;         &quot;Chamaeleoninae&quot;   
+##  [83,] &quot;Leiolepis belliana&quot;             &quot;Leiolepidinae&quot;    
+##  [84,] &quot;Acanthosaura armata&quot;            &quot;Draconinae&quot;       
+##  [85,] &quot;Agama aculeata&quot;                 &quot;Agaminae&quot;         
+##  [86,] &quot;Pogona barbata&quot;                 &quot;Amphibolurinae&quot;   
+##  [87,] &quot;Ctenophorus isolepis&quot;           &quot;Amphibolurinae&quot;   
+##  [88,] &quot;Ctenophorus nuchalis&quot;           &quot;Amphibolurinae&quot;   
+##  [89,] &quot;Aphaniotis acutirostris&quot;        &quot;Draconinae&quot;       
+##  [90,] &quot;Calotes andamanensis&quot;           &quot;Draconinae&quot;       
+##  [91,] &quot;Ceratophora aspera&quot;             &quot;Draconinae&quot;       
+##  [92,] &quot;Chlamydosaurus kingii&quot;          &quot;Amphibolurinae&quot;   
+##  [93,] &quot;Cophotis ceylanica&quot;             &quot;Draconinae&quot;       
+##  [94,] &quot;Diporiphora adductus&quot;           &quot;Amphibolurinae&quot;   
+##  [95,] &quot;Draco abbreviatus&quot;              &quot;Draconinae&quot;       
+##  [96,] &quot;Gonocephalus abbotti&quot;           &quot;Draconinae&quot;       
+##  [97,] &quot;Hydrosaurus amboinensis&quot;        &quot;Hydrosaurinae&quot;    
+##  [98,] &quot;Hypsilurus auritus&quot;             &quot;Amphibolurinae&quot;   
+##  [99,] &quot;Japalura andersoniana&quot;          &quot;Draconinae&quot;       
+## [100,] &quot;Lophognathus burnsi&quot;            &quot;Amphibolurinae&quot;   
+## [101,] &quot;Moloch horridus&quot;                &quot;Amphibolurinae&quot;   
+## [102,] &quot;Oriocalotes paulus&quot;             &quot;Draconinae&quot;       
+## [103,] &quot;Otocryptis beddomei&quot;            &quot;Draconinae&quot;       
+## [104,] &quot;Phrynocephalus albolineatus&quot;    &quot;Agaminae&quot;         
+## [105,] &quot;Physignathus cocincinus&quot;        &quot;Amphibolurinae&quot;   
+## [106,] &quot;Psammophilus blanfordanus&quot;      &quot;Draconinae&quot;       
+## [107,] &quot;Pseudotrapelus aqabensis&quot;       &quot;Agaminae&quot;         
+## [108,] &quot;Salea anamallayana&quot;             &quot;Draconinae&quot;       
+## [109,] &quot;Sitana fusca&quot;                   &quot;Draconinae&quot;       
+## [110,] &quot;Laudakia stellio&quot;               &quot;Agaminae&quot;         
+## [111,] &quot;Trapelus agilis&quot;                &quot;Agaminae&quot;         
+## [112,] &quot;Tympanocryptis centralis&quot;       &quot;Amphibolurinae&quot;   
+## [113,] &quot;Leiocephalus anonymous&quot;         &quot;Leiocephalidae&quot;   
+## [114,] &quot;Callisaurus draconoides&quot;        &quot;Phrynosomatidae&quot;  
+## [115,] &quot;Cophosaurus texanus&quot;            &quot;Phrynosomatidae&quot;  
+## [116,] &quot;Holbrookia elegans&quot;             &quot;Phrynosomatidae&quot;  
+## [117,] &quot;Petrosaurus mearnsi&quot;            &quot;Phrynosomatidae&quot;  
+## [118,] &quot;Phrynosoma asio&quot;                &quot;Phrynosomatidae&quot;  
+## [119,] &quot;Sceloporus angustus&quot;            &quot;Phrynosomatidae&quot;  
+## [120,] &quot;Sceloporus magister&quot;            &quot;Phrynosomatidae&quot;  
+## [121,] &quot;Sceloporus occidentalis&quot;        &quot;Phrynosomatidae&quot;  
+## [122,] &quot;Sceloporus rufidorsum&quot;          &quot;Phrynosomatidae&quot;  
+## [123,] &quot;Uma exsul&quot;                      &quot;Phrynosomatidae&quot;  
+## [124,] &quot;Urosaurus auriculatus&quot;          &quot;Phrynosomatidae&quot;  
+## [125,] &quot;Uta stansburiana&quot;               &quot;Phrynosomatidae&quot;  
+## [126,] &quot;Basiliscus basiliscus&quot;          &quot;Corytophanidae&quot;   
+## [127,] &quot;Corytophanes cristatus&quot;         &quot;Corytophanidae&quot;   
+## [128,] &quot;Laemanctus longipes&quot;            &quot;Corytophanidae&quot;   
+## [129,] &quot;Amblyrhynchus cristatus&quot;        &quot;Iguanidae&quot;        
+## [130,] &quot;Brachylophus bulabula&quot;          &quot;Iguanidae&quot;        
+## [131,] &quot;Conolophus marthae&quot;             &quot;Iguanidae&quot;        
+## [132,] &quot;Ctenosaura clarki&quot;              &quot;Iguanidae&quot;        
+## [133,] &quot;Ctenosaura pectinata&quot;           &quot;Iguanidae&quot;        
+## [134,] &quot;Cyclura carinata&quot;               &quot;Iguanidae&quot;        
+## [135,] &quot;Dipsosaurus dorsalis&quot;           &quot;Iguanidae&quot;        
+## [136,] &quot;Iguana delicatissima&quot;           &quot;Iguanidae&quot;        
+## [137,] &quot;Sauromalus ater&quot;                &quot;Iguanidae&quot;        
+## [138,] &quot;Anisolepis grilli&quot;              &quot;Enyaliinae&quot;       
+## [139,] &quot;Anolis barahonae&quot;               &quot;Dactyloidae&quot;      
+## [140,] &quot;Anolis gundlachi&quot;               &quot;Dactyloidae&quot;      
+## [141,] &quot;Anolis pulchellus&quot;              &quot;Dactyloidae&quot;      
+## [142,] &quot;Anolis valencienni&quot;             &quot;Dactyloidae&quot;      
+## [143,] &quot;Leiosaurus catamarcensis&quot;       &quot;Leiosaurinae&quot;     
+## [144,] &quot;Anisolepis longicauda&quot;          &quot;Enyaliinae&quot;       
+## [145,] &quot;Anolis chamaeleonides&quot;          &quot;Dactyloidae&quot;      
+## [146,] &quot;Anolis barbouri&quot;                &quot;Dactyloidae&quot;      
+## [147,] &quot;Diplolaemus bibronii&quot;           &quot;Leiosaurinae&quot;     
+## [148,] &quot;Enyalius bibronii&quot;              &quot;Enyaliinae&quot;       
+## [149,] &quot;Leiosaurus bellii&quot;              &quot;Leiosaurinae&quot;     
+## [150,] &quot;Anolis bellipeniculus&quot;          &quot;Dactyloidae&quot;      
+## [151,] &quot;Polychrus acutirostris&quot;         &quot;Polychrotidae&quot;    
+## [152,] &quot;Pristidactylus achalensis&quot;      &quot;Leiosaurinae&quot;     
+## [153,] &quot;Urostrophus gallardoi&quot;          &quot;Enyaliinae&quot;       
+## [154,] &quot;Enyalioides cofanorum&quot;          &quot;Hoplocercidae&quot;    
+## [155,] &quot;Hoplocercus spinosus&quot;           &quot;Hoplocercidae&quot;    
+## [156,] &quot;Morunasaurus annularis&quot;         &quot;Hoplocercidae&quot;    
+## [157,] &quot;Chalarodon madagascariensis&quot;    &quot;Opluridae&quot;        
+## [158,] &quot;Oplurus cuvieri&quot;                &quot;Opluridae&quot;        
+## [159,] &quot;Liolaemus buergeri&quot;             &quot;Liolaemidae&quot;      
+## [160,] &quot;Liolaemus tenuis&quot;               &quot;Liolaemidae&quot;      
+## [161,] &quot;Phymaturus alicahuense&quot;         &quot;Liolaemidae&quot;      
+## [162,] &quot;Crotaphytus antiquus&quot;           &quot;Crotaphytidae&quot;    
+## [163,] &quot;Gambelia copeii&quot;                &quot;Crotaphytidae&quot;    
+## [164,] &quot;Ctenoblepharys adspersa&quot;        &quot;Liolaemidae&quot;      
+## [165,] &quot;Stenocercus caducus&quot;            &quot;Tropiduridae&quot;     
+## [166,] &quot;Plica lumaria&quot;                  &quot;Tropiduridae&quot;     
+## [167,] &quot;Stenocercus pectinatus&quot;         &quot;Tropiduridae&quot;     
+## [168,] &quot;Stenocercus aculeatus&quot;          &quot;Tropiduridae&quot;     
+## [169,] &quot;Strobilurus torquatus&quot;          &quot;Tropiduridae&quot;     
+## [170,] &quot;Tropidurus hispidus&quot;            &quot;Tropiduridae&quot;     
+## [171,] &quot;Tropidurus torquatus&quot;           &quot;Tropiduridae&quot;     
+## [172,] &quot;Uracentron azureum&quot;             &quot;Tropiduridae&quot;     
+## [173,] &quot;Uranoscodon superciliosus&quot;      &quot;Tropiduridae&quot;     
+## [174,] &quot;Xenosaurus agrenon&quot;             &quot;Xenosauridae&quot;     
+## [175,] &quot;Heloderma horridum&quot;             &quot;Helodermatidae&quot;   
+## [176,] &quot;Abronia anzuetoi&quot;               &quot;Gerrhonotinae&quot;    
+## [177,] &quot;Anguis cephallonica&quot;            &quot;Anguinae&quot;         
+## [178,] &quot;Anniella geronimensis&quot;          &quot;Anniellidae&quot;      
+## [179,] &quot;Barisia herrerae&quot;               &quot;Gerrhonotinae&quot;    
+## [180,] &quot;Celestus adercus&quot;               &quot;Diploglossinae&quot;   
+## [181,] &quot;Diploglossus atitlanensis&quot;      &quot;Diploglossinae&quot;   
+## [182,] &quot;Elgaria coerulea&quot;               &quot;Gerrhonotinae&quot;    
+## [183,] &quot;Gerrhonotus farri&quot;              &quot;Gerrhonotinae&quot;    
+## [184,] &quot;Mesaspis antauges&quot;              &quot;Gerrhonotinae&quot;    
+## [185,] &quot;Ophiodes intermedius&quot;           &quot;Diploglossinae&quot;   
+## [186,] &quot;Ophisaurus attenuatus&quot;          &quot;Anguinae&quot;         
+## [187,] &quot;Celestus agasepsoides&quot;          &quot;Diploglossinae&quot;   
+## [188,] &quot;Celestus haetianus&quot;             &quot;Diploglossinae&quot;   
+## [189,] &quot;Lanthanotus borneensis&quot;         &quot;Lanthanotidae&quot;    
+## [190,] &quot;Varanus acanthurus&quot;             &quot;Varanidae&quot;        
+## [191,] &quot;Leptotyphlops aethiopicus&quot;      &quot;Leptotyphlopidae&quot; 
+## [192,] &quot;Liotyphlops albirostris&quot;        &quot;Anomalepididae&quot;   
+## [193,] &quot;Ramphotyphlops acuticaudus&quot;     &quot;Typhlopidae&quot;      
+## [194,] &quot;Typhlops agoralionis&quot;           &quot;Typhlopidae&quot;      
+## [195,] &quot;Achalinus ater&quot;                 &quot;Xenodermidae&quot;     
+## [196,] &quot;Acrochordus arafurae&quot;           &quot;Acrochordidae&quot;    
+## [197,] &quot;Agkistrodon bilineatus&quot;         &quot;Crotalinae&quot;       
+## [198,] &quot;Anilius scytale&quot;                &quot;Aniliidae&quot;        
+## [199,] &quot;Atheris acuminata&quot;              &quot;Viperinae&quot;        
+## [200,] &quot;Atractaspis andersonii&quot;         &quot;Atractaspidinae&quot;  
+## [201,] &quot;Austrelaps labialis&quot;            &quot;Elapidae&quot;         
+## [202,] &quot;Bitis albanica&quot;                 &quot;Viperinae&quot;        
+## [203,] &quot;Cerberus australis&quot;             &quot;Homalopsidae&quot;     
+## [204,] &quot;Charina bottae&quot;                 &quot;Ungaliophiinae&quot;   
+## [205,] &quot;Chironius bicarinatus&quot;          &quot;Colubrinae&quot;       
+## [206,] &quot;Coluber anthonyi&quot;               &quot;Colubrinae&quot;       
+## [207,] &quot;Crotalus adamanteus&quot;            &quot;Crotalinae&quot;       
+## [208,] &quot;Cylindrophis aruensis&quot;          &quot;Cylindrophiidae&quot;  
+## [209,] &quot;Elaphe anomala&quot;                 &quot;Colubrinae&quot;       
+## [210,] &quot;Epicrates alvarezi&quot;             &quot;Boinae&quot;           
+## [211,] &quot;Eryx borrii&quot;                    &quot;Erycinae&quot;         
+## [212,] &quot;Heterodon nasicus&quot;              &quot;Dipsadinae&quot;       
+## [213,] &quot;Laticauda colubrina&quot;            &quot;Elapidae&quot;         
+## [214,] &quot;Liopeltis calamaria&quot;            &quot;Colubrinae&quot;       
+## [215,] &quot;Loxocemus bicolor&quot;              &quot;Loxocemidae&quot;      
+## [216,] &quot;Naja anchietae&quot;                 &quot;Elapidae&quot;         
+## [217,] &quot;Nerodia clarkii&quot;                &quot;Natricinae&quot;       
+## [218,] &quot;Oligodon affinis&quot;               &quot;Colubrinae&quot;       
+## [219,] &quot;Opheodrys aestivus&quot;             &quot;Colubrinae&quot;       
+## [220,] &quot;Oxybelis aeneus&quot;                &quot;Colubrinae&quot;       
+## [221,] &quot;Hydrophis curtus&quot;               &quot;Elapidae&quot;         
+## [222,] &quot;Python molurus&quot;                 &quot;Pythonidae&quot;       
+## [223,] &quot;Rhinophis blythii&quot;              &quot;Uropeltidae&quot;      
+## [224,] &quot;Sistrurus catenatus&quot;            &quot;Crotalinae&quot;       
+## [225,] &quot;Storeria dekayi&quot;                &quot;Natricinae&quot;       
+## [226,] &quot;Thamnophis angustirostris&quot;      &quot;Natricinae&quot;       
+## [227,] &quot;Tropidophis battersbyi&quot;         &quot;Tropidophiidae&quot;   
+## [228,] &quot;Vipera altaica&quot;                 &quot;Viperinae&quot;        
+## [229,] &quot;Xenodon dorbignyi&quot;              &quot;Dipsadinae&quot;       
+## [230,] &quot;Xenopeltis hainanensis&quot;         &quot;Xenopeltidae&quot;     
+## [231,] &quot;Ptyas fusca&quot;                    &quot;Colubrinae&quot;       
+## [232,] &quot;Acanthodactylus aegyptius&quot;      &quot;Lacertinae&quot;       
+## [233,] &quot;Adolfus africanus&quot;              &quot;Lacertinae&quot;       
+## [234,] &quot;Algyroides fitzingeri&quot;          &quot;Lacertinae&quot;       
+## [235,] &quot;Meroles anchietae&quot;              &quot;Lacertinae&quot;       
+## [236,] &quot;Ophisops leschenaultii&quot;         &quot;Lacertinae&quot;       
+## [237,] &quot;Eremias acutirostris&quot;           &quot;Lacertinae&quot;       
+## [238,] &quot;Gallotia atlantica&quot;             &quot;Gallotiinae&quot;      
+## [239,] &quot;Gastropholis echinata&quot;          &quot;Lacertinae&quot;       
+## [240,] &quot;Heliobolus lugubris&quot;            &quot;Lacertinae&quot;       
+## [241,] &quot;Holaspis guentheri&quot;             &quot;Lacertinae&quot;       
+## [242,] &quot;Ichnotropis bivittata&quot;          &quot;Lacertinae&quot;       
+## [243,] &quot;Lacerta agilis&quot;                 &quot;Lacertinae&quot;       
+## [244,] &quot;Timon lepidus&quot;                  &quot;Lacertinae&quot;       
+## [245,] &quot;Latastia boscai&quot;                &quot;Lacertinae&quot;       
+## [246,] &quot;Meroles ctenodactylus&quot;          &quot;Lacertinae&quot;       
+## [247,] &quot;Mesalina adramitana&quot;            &quot;Lacertinae&quot;       
+## [248,] &quot;Nucras boulengeri&quot;              &quot;Lacertinae&quot;       
+## [249,] &quot;Ophisops beddomei&quot;              &quot;Lacertinae&quot;       
+## [250,] &quot;Pedioplanis benguellensis&quot;      &quot;Lacertinae&quot;       
+## [251,] &quot;Philochortus hardeggeri&quot;        &quot;Lacertinae&quot;       
+## [252,] &quot;Takydromus intermedius&quot;         &quot;Lacertinae&quot;       
+## [253,] &quot;Podarcis bocagei&quot;               &quot;Lacertinae&quot;       
+## [254,] &quot;Poromera fordii&quot;                &quot;Lacertinae&quot;       
+## [255,] &quot;Psammodromus algirus&quot;           &quot;Gallotiinae&quot;      
+## [256,] &quot;Pseuderemias brenneri&quot;          &quot;Lacertinae&quot;       
+## [257,] &quot;Takydromus amurensis&quot;           &quot;Lacertinae&quot;       
+## [258,] &quot;Tropidosaura cottrelli&quot;         &quot;Lacertinae&quot;       
+## [259,] &quot;Rhineura floridana&quot;             &quot;Rhineuridae&quot;      
+## [260,] &quot;Agamodon anguliceps&quot;            &quot;Trogonophiidae&quot;   
+## [261,] &quot;Amphisbaena absaberi&quot;           &quot;Amphisbaenidae&quot;   
+## [262,] &quot;Amphisbaena acrobeles&quot;          &quot;Amphisbaenidae&quot;   
+## [263,] &quot;Bipes biporus&quot;                  &quot;Bipedidae&quot;        
+## [264,] &quot;Blanus cinereus&quot;                &quot;Blanidae&quot;         
+## [265,] &quot;Chirindia ewerbecki&quot;            &quot;Amphisbaenidae&quot;   
+## [266,] &quot;Cynisca bifrontalis&quot;            &quot;Amphisbaenidae&quot;   
+## [267,] &quot;Dalophia angolensis&quot;            &quot;Amphisbaenidae&quot;   
+## [268,] &quot;Diplometopon zarudnyi&quot;          &quot;Trogonophiidae&quot;   
+## [269,] &quot;Geocalamus acutus&quot;              &quot;Amphisbaenidae&quot;   
+## [270,] &quot;Amphisbaena cerradensis&quot;        &quot;Amphisbaenidae&quot;   
+## [271,] &quot;Loveridgea ionidesii&quot;           &quot;Amphisbaenidae&quot;   
+## [272,] &quot;Monopeltis adercae&quot;             &quot;Amphisbaenidae&quot;   
+## [273,] &quot;Trogonophis wiegmanni&quot;          &quot;Trogonophiidae&quot;   
+## [274,] &quot;Zygaspis ferox&quot;                 &quot;Amphisbaenidae&quot;   
+## [275,] &quot;Ameiva ameiva&quot;                  &quot;Teiinae&quot;          
+## [276,] &quot;Cnemidophorus abaetensis&quot;       &quot;Teiinae&quot;          
+## [277,] &quot;Crocodilurus amazonicus&quot;        &quot;Tupinambinae&quot;     
+## [278,] &quot;Dicrodon guttulatum&quot;            &quot;Teiinae&quot;          
+## [279,] &quot;Dracaena guianensis&quot;            &quot;Tupinambinae&quot;     
+## [280,] &quot;Kentropyx altamazonica&quot;         &quot;Teiinae&quot;          
+## [281,] &quot;Teius oculatus&quot;                 &quot;Teiinae&quot;          
+## [282,] &quot;Tupinambis duseni&quot;              &quot;Tupinambinae&quot;     
+## [283,] &quot;Alopoglossus angulatus&quot;         &quot;Alopoglossinae&quot;   
+## [284,] &quot;Anadia altaserrania&quot;            &quot;Cercosaurinae&quot;    
+## [285,] &quot;Bachia barbouri&quot;                &quot;Bachiinae&quot;        
+## [286,] &quot;Echinosaura brachycephala&quot;      &quot;Cercosaurinae&quot;    
+## [287,] &quot;Gymnodactylus amarali&quot;          &quot;Phyllodactylidae&quot; 
+## [288,] &quot;Gymnophthalmus cryptus&quot;         &quot;Gymnophthalminae&quot; 
+## [289,] &quot;Leposoma annectans&quot;             &quot;Ecpleopinae&quot;      
+## [290,] &quot;Neusticurus bicarinatus&quot;        &quot;Cercosaurinae&quot;    
+## [291,] &quot;Opipeuter xestus&quot;               &quot;Cercosaurinae&quot;    
+## [292,] &quot;Cercosaura quadrilineata&quot;       &quot;Cercosaurinae&quot;    
+## [293,] &quot;Pholidobolus affinis&quot;           &quot;Cercosaurinae&quot;    
+## [294,] &quot;Placosoma cipoense&quot;             &quot;Cercosaurinae&quot;    
+## [295,] &quot;Cercosaura argulus&quot;             &quot;Cercosaurinae&quot;    
+## [296,] &quot;Proctoporus bolivianus&quot;         &quot;Cercosaurinae&quot;    
+## [297,] &quot;Ptychoglossus bicolor&quot;          &quot;Alopoglossinae&quot;   
+## [298,] &quot;Tretioscincus agilis&quot;           &quot;Gymnophthalminae&quot; 
+## [299,] &quot;Ablepharus bivittatus&quot;          &quot;Lygosominae&quot;      
+## [300,] &quot;Afroablepharus africanus&quot;       &quot;Lygosominae&quot;      
+## [301,] &quot;Anomalopus brevicollis&quot;         &quot;Lygosominae&quot;      
+## [302,] &quot;Nannoscincus gracilis&quot;          &quot;Lygosominae&quot;      
+## [303,] &quot;Dasia vittata&quot;                  &quot;Lygosominae&quot;      
+## [304,] &quot;Asymblepharus alaicus&quot;          &quot;Lygosominae&quot;      
+## [305,] &quot;Ateuchosaurus chinensis&quot;        &quot;Lygosominae&quot;      
+## [306,] &quot;Caledoniscincus aquilonius&quot;     &quot;Lygosominae&quot;      
+## [307,] &quot;Calyptotis lepidorostrum&quot;       &quot;Lygosominae&quot;      
+## [308,] &quot;Carlia aenigma&quot;                 &quot;Lygosominae&quot;      
+## [309,] &quot;Coeranoscincus frontalis&quot;       &quot;Lygosominae&quot;      
+## [310,] &quot;Cophoscincopus durus&quot;           &quot;Lygosominae&quot;      
+## [311,] &quot;Corucia zebrata&quot;                &quot;Lygosominae&quot;      
+## [312,] &quot;Cryptoblepharus adamsi&quot;         &quot;Lygosominae&quot;      
+## [313,] &quot;Ctenotus pallescens&quot;            &quot;Lygosominae&quot;      
+## [314,] &quot;Dasia griffini&quot;                 &quot;Lygosominae&quot;      
+## [315,] &quot;Egernia cunninghami&quot;            &quot;Lygosominae&quot;      
+## [316,] &quot;Emoia adspersa&quot;                 &quot;Lygosominae&quot;      
+## [317,] &quot;Eremiascincus antoniorum&quot;       &quot;Lygosominae&quot;      
+## [318,] &quot;Eugongylus albofasciolatus&quot;     &quot;Lygosominae&quot;      
+## [319,] &quot;Eumecia anchietae&quot;              &quot;Lygosominae&quot;      
+## [320,] &quot;Graciliscincus shonae&quot;          &quot;Lygosominae&quot;      
+## [321,] &quot;Hemiergis decresiensis&quot;         &quot;Lygosominae&quot;      
+## [322,] &quot;Lamprolepis leucosticta&quot;        &quot;Lygosominae&quot;      
+## [323,] &quot;Lampropholis adonis&quot;            &quot;Lygosominae&quot;      
+## [324,] &quot;Leiolopisma alazon&quot;             &quot;Lygosominae&quot;      
+## [325,] &quot;Leptosiaphos aloysiisabaudiae&quot;  &quot;Lygosominae&quot;      
+## [326,] &quot;Lerista aericeps&quot;               &quot;Lygosominae&quot;      
+## [327,] &quot;Lipinia albodorsalis&quot;           &quot;Lygosominae&quot;      
+## [328,] &quot;Lobulia alpina&quot;                 &quot;Lygosominae&quot;      
+## [329,] &quot;Lygisaurus abscondita&quot;          &quot;Lygosominae&quot;      
+## [330,] &quot;Lygosoma albopunctata&quot;          &quot;Lygosominae&quot;      
+## [331,] &quot;Mabuya agilis&quot;                  &quot;Lygosominae&quot;      
+## [332,] &quot;Marmorosphax boulinda&quot;          &quot;Lygosominae&quot;      
+## [333,] &quot;Menetia alanae&quot;                 &quot;Lygosominae&quot;      
+## [334,] &quot;Morethia adelaidensis&quot;          &quot;Lygosominae&quot;      
+## [335,] &quot;Nannoscincus exos&quot;              &quot;Lygosominae&quot;      
+## [336,] &quot;Panaspis breviceps&quot;             &quot;Lygosominae&quot;      
+## [337,] &quot;Papuascincus buergersi&quot;         &quot;Lygosominae&quot;      
+## [338,] &quot;Prasinohaema flavipes&quot;          &quot;Lygosominae&quot;      
+## [339,] &quot;Ablepharus pannonicus&quot;          &quot;Lygosominae&quot;      
+## [340,] &quot;Ristella beddomii&quot;              &quot;Lygosominae&quot;      
+## [341,] &quot;Saiphos equalis&quot;                &quot;Lygosominae&quot;      
+## [342,] &quot;Scincella apraefrontalis&quot;       &quot;Lygosominae&quot;      
+## [343,] &quot;Sigaloseps deplanchei&quot;          &quot;Lygosominae&quot;      
+## [344,] &quot;Sphenomorphus acutus&quot;           &quot;Lygosominae&quot;      
+## [345,] &quot;Tiliqua adelaidensis&quot;           &quot;Lygosominae&quot;      
+## [346,] &quot;Tiliqua rugosa&quot;                 &quot;Lygosominae&quot;      
+## [347,] &quot;Tribolonotus annectens&quot;         &quot;Lygosominae&quot;      
+## [348,] &quot;Tropidophorus assamensis&quot;       &quot;Lygosominae&quot;      
+## [349,] &quot;Tropidoscincus aubrianus&quot;       &quot;Lygosominae&quot;      
+## [350,] &quot;Androngo trivittatus&quot;           &quot;Scincinae&quot;        
+## [351,] &quot;Brachymeles apus&quot;               &quot;Scincinae&quot;        
+## [352,] &quot;Chalcides armitagei&quot;            &quot;Scincinae&quot;        
+## [353,] &quot;Eumeces algeriensis&quot;            &quot;Scincinae&quot;        
+## [354,] &quot;Feylinia currori&quot;               &quot;Scincinae&quot;        
+## [355,] &quot;Typhlacontias brevipes&quot;         &quot;Scincinae&quot;        
+## [356,] &quot;Melanoseps ater&quot;                &quot;Scincinae&quot;        
+## [357,] &quot;Plestiodon reynoldsi&quot;           &quot;Scincinae&quot;        
+## [358,] &quot;Nessia bipes&quot;                   &quot;Scincinae&quot;        
+## [359,] &quot;Ophiomorus blanfordi&quot;           &quot;Scincinae&quot;        
+## [360,] &quot;Paracontias brocchii&quot;           &quot;Scincinae&quot;        
+## [361,] &quot;Proscelotes aenea&quot;              &quot;Scincinae&quot;        
+## [362,] &quot;Scelotes anguineus&quot;             &quot;Scincinae&quot;        
+## [363,] &quot;Scincopus fasciatus&quot;            &quot;Scincinae&quot;        
+## [364,] &quot;Scincus albifasciatus&quot;          &quot;Scincinae&quot;        
+## [365,] &quot;Chalcides sphenopsiformis&quot;      &quot;Scincinae&quot;        
+## [366,] &quot;Typhlacontias gracilis&quot;         &quot;Scincinae&quot;        
+## [367,] &quot;Voeltzkowia fierinensis&quot;        &quot;Scincinae&quot;        
+## [368,] &quot;Acontias aurantiacus&quot;           &quot;Acontiinae&quot;       
+## [369,] &quot;Typhlosaurus braini&quot;            &quot;Acontiinae&quot;       
+## [370,] &quot;Cricosaura typica&quot;              &quot;Cricosaurinae&quot;    
+## [371,] &quot;Lepidophyma chicoasensis&quot;       &quot;Lepidophyminae&quot;   
+## [372,] &quot;Xantusia arizonae&quot;              &quot;Xantusiinae&quot;      
+## [373,] &quot;Xantusia riversiana&quot;            &quot;Xantusiinae&quot;      
+## [374,] &quot;Chamaesaura aenea&quot;              &quot;Cordylinae&quot;       
+## [375,] &quot;Gerrhosaurus bulsi&quot;             &quot;Gerrhosaurinae&quot;   
+## [376,] &quot;Tetradactylus africanus&quot;        &quot;Gerrhosaurinae&quot;   
+## [377,] &quot;Zonosaurus aeneus&quot;              &quot;Zonosaurinae&quot;     
+## [378,] &quot;Cordylosaurus subtessellatus&quot;   &quot;Gerrhosaurinae&quot;   
+## [379,] &quot;Cordylus angolensis&quot;            &quot;Cordylinae&quot;       
+## [380,] &quot;Platysaurus broadleyi&quot;          &quot;Platysaurinae&quot;    
+## [381,] &quot;Platysaurus capensis&quot;           &quot;Platysaurinae&quot;    
+## [382,] &quot;Pseudocordylus langi&quot;           &quot;Cordylinae&quot;       
+## [383,] &quot;Shinisaurus crocodilurus&quot;       &quot;Shinisauridae&quot;    
+## [384,] &quot;Lygosoma albopunctata&quot;          &quot;Lygosominae&quot;      
+##        family             
+##   [1,] &quot;Eublepharidae&quot;    
+##   [2,] &quot;Eublepharidae&quot;    
+##   [3,] &quot;Eublepharidae&quot;    
+##   [4,] &quot;Eublepharidae&quot;    
+##   [5,] &quot;Eublepharidae&quot;    
+##   [6,] &quot;Eublepharidae&quot;    
+##   [7,] &quot;Gekkonidae&quot;       
+##   [8,] &quot;Gekkonidae&quot;       
+##   [9,] &quot;Gekkonidae&quot;       
+##  [10,] &quot;Gekkonidae&quot;       
+##  [11,] &quot;Sphaerodactylidae&quot;
+##  [12,] &quot;Phyllodactylidae&quot; 
+##  [13,] &quot;Gekkonidae&quot;       
+##  [14,] &quot;Gekkonidae&quot;       
+##  [15,] &quot;Gekkonidae&quot;       
+##  [16,] &quot;Sphaerodactylidae&quot;
+##  [17,] &quot;Gekkonidae&quot;       
+##  [18,] &quot;Gekkonidae&quot;       
+##  [19,] &quot;Gekkonidae&quot;       
+##  [20,] &quot;Gekkonidae&quot;       
+##  [21,] &quot;Gekkonidae&quot;       
+##  [22,] &quot;Gekkonidae&quot;       
+##  [23,] &quot;Gekkonidae&quot;       
+##  [24,] &quot;Phyllodactylidae&quot; 
+##  [25,] &quot;Gekkonidae&quot;       
+##  [26,] &quot;Sphaerodactylidae&quot;
+##  [27,] &quot;Gekkonidae&quot;       
+##  [28,] &quot;Gekkonidae&quot;       
+##  [29,] &quot;Gekkonidae&quot;       
+##  [30,] &quot;Phyllodactylidae&quot; 
+##  [31,] &quot;Gekkonidae&quot;       
+##  [32,] &quot;Sphaerodactylidae&quot;
+##  [33,] &quot;Gekkonidae&quot;       
+##  [34,] &quot;Gekkonidae&quot;       
+##  [35,] &quot;Gekkonidae&quot;       
+##  [36,] &quot;Gekkonidae&quot;       
+##  [37,] &quot;Gekkonidae&quot;       
+##  [38,] &quot;Gekkonidae&quot;       
+##  [39,] &quot;Gekkonidae&quot;       
+##  [40,] &quot;Gekkonidae&quot;       
+##  [41,] &quot;Gekkonidae&quot;       
+##  [42,] &quot;Gekkonidae&quot;       
+##  [43,] &quot;Phyllodactylidae&quot; 
+##  [44,] &quot;Gekkonidae&quot;       
+##  [45,] &quot;Sphaerodactylidae&quot;
+##  [46,] &quot;Gekkonidae&quot;       
+##  [47,] &quot;Gekkonidae&quot;       
+##  [48,] &quot;Phyllodactylidae&quot; 
+##  [49,] &quot;Sphaerodactylidae&quot;
+##  [50,] &quot;Gekkonidae&quot;       
+##  [51,] &quot;Sphaerodactylidae&quot;
+##  [52,] &quot;Sphaerodactylidae&quot;
+##  [53,] &quot;Gekkonidae&quot;       
+##  [54,] &quot;Phyllodactylidae&quot; 
+##  [55,] &quot;Gekkonidae&quot;       
+##  [56,] &quot;Gekkonidae&quot;       
+##  [57,] &quot;Sphaerodactylidae&quot;
+##  [58,] &quot;Phyllodactylidae&quot; 
+##  [59,] &quot;Gekkonidae&quot;       
+##  [60,] &quot;Gekkonidae&quot;       
+##  [61,] &quot;Pygopodidae&quot;      
+##  [62,] &quot;Diplodactylidae&quot;  
+##  [63,] &quot;Diplodactylidae&quot;  
+##  [64,] &quot;Pygopodidae&quot;      
+##  [65,] &quot;Diplodactylidae&quot;  
+##  [66,] &quot;Diplodactylidae&quot;  
+##  [67,] &quot;Diplodactylidae&quot;  
+##  [68,] &quot;Pygopodidae&quot;      
+##  [69,] &quot;Diplodactylidae&quot;  
+##  [70,] &quot;Carphodactylidae&quot; 
+##  [71,] &quot;Diplodactylidae&quot;  
+##  [72,] &quot;Pygopodidae&quot;      
+##  [73,] &quot;Carphodactylidae&quot; 
+##  [74,] &quot;Pygopodidae&quot;      
+##  [75,] &quot;Diplodactylidae&quot;  
+##  [76,] &quot;Dibamidae&quot;        
+##  [77,] &quot;Agamidae&quot;         
+##  [78,] &quot;Chamaeleonidae&quot;   
+##  [79,] &quot;Chamaeleonidae&quot;   
+##  [80,] &quot;Chamaeleonidae&quot;   
+##  [81,] &quot;Chamaeleonidae&quot;   
+##  [82,] &quot;Chamaeleonidae&quot;   
+##  [83,] &quot;Agamidae&quot;         
+##  [84,] &quot;Agamidae&quot;         
+##  [85,] &quot;Agamidae&quot;         
+##  [86,] &quot;Agamidae&quot;         
+##  [87,] &quot;Agamidae&quot;         
+##  [88,] &quot;Agamidae&quot;         
+##  [89,] &quot;Agamidae&quot;         
+##  [90,] &quot;Agamidae&quot;         
+##  [91,] &quot;Agamidae&quot;         
+##  [92,] &quot;Agamidae&quot;         
+##  [93,] &quot;Agamidae&quot;         
+##  [94,] &quot;Agamidae&quot;         
+##  [95,] &quot;Agamidae&quot;         
+##  [96,] &quot;Agamidae&quot;         
+##  [97,] &quot;Agamidae&quot;         
+##  [98,] &quot;Agamidae&quot;         
+##  [99,] &quot;Agamidae&quot;         
+## [100,] &quot;Agamidae&quot;         
+## [101,] &quot;Agamidae&quot;         
+## [102,] &quot;Agamidae&quot;         
+## [103,] &quot;Agamidae&quot;         
+## [104,] &quot;Agamidae&quot;         
+## [105,] &quot;Agamidae&quot;         
+## [106,] &quot;Agamidae&quot;         
+## [107,] &quot;Agamidae&quot;         
+## [108,] &quot;Agamidae&quot;         
+## [109,] &quot;Agamidae&quot;         
+## [110,] &quot;Agamidae&quot;         
+## [111,] &quot;Agamidae&quot;         
+## [112,] &quot;Agamidae&quot;         
+## [113,] &quot;Leiocephalidae&quot;   
+## [114,] &quot;Phrynosomatidae&quot;  
+## [115,] &quot;Phrynosomatidae&quot;  
+## [116,] &quot;Phrynosomatidae&quot;  
+## [117,] &quot;Phrynosomatidae&quot;  
+## [118,] &quot;Phrynosomatidae&quot;  
+## [119,] &quot;Phrynosomatidae&quot;  
+## [120,] &quot;Phrynosomatidae&quot;  
+## [121,] &quot;Phrynosomatidae&quot;  
+## [122,] &quot;Phrynosomatidae&quot;  
+## [123,] &quot;Phrynosomatidae&quot;  
+## [124,] &quot;Phrynosomatidae&quot;  
+## [125,] &quot;Phrynosomatidae&quot;  
+## [126,] &quot;Corytophanidae&quot;   
+## [127,] &quot;Corytophanidae&quot;   
+## [128,] &quot;Corytophanidae&quot;   
+## [129,] &quot;Iguanidae&quot;        
+## [130,] &quot;Iguanidae&quot;        
+## [131,] &quot;Iguanidae&quot;        
+## [132,] &quot;Iguanidae&quot;        
+## [133,] &quot;Iguanidae&quot;        
+## [134,] &quot;Iguanidae&quot;        
+## [135,] &quot;Iguanidae&quot;        
+## [136,] &quot;Iguanidae&quot;        
+## [137,] &quot;Iguanidae&quot;        
+## [138,] &quot;Leiosauridae&quot;     
+## [139,] &quot;Dactyloidae&quot;      
+## [140,] &quot;Dactyloidae&quot;      
+## [141,] &quot;Dactyloidae&quot;      
+## [142,] &quot;Dactyloidae&quot;      
+## [143,] &quot;Leiosauridae&quot;     
+## [144,] &quot;Leiosauridae&quot;     
+## [145,] &quot;Dactyloidae&quot;      
+## [146,] &quot;Dactyloidae&quot;      
+## [147,] &quot;Leiosauridae&quot;     
+## [148,] &quot;Leiosauridae&quot;     
+## [149,] &quot;Leiosauridae&quot;     
+## [150,] &quot;Dactyloidae&quot;      
+## [151,] &quot;Polychrotidae&quot;    
+## [152,] &quot;Leiosauridae&quot;     
+## [153,] &quot;Leiosauridae&quot;     
+## [154,] &quot;Hoplocercidae&quot;    
+## [155,] &quot;Hoplocercidae&quot;    
+## [156,] &quot;Hoplocercidae&quot;    
+## [157,] &quot;Opluridae&quot;        
+## [158,] &quot;Opluridae&quot;        
+## [159,] &quot;Liolaemidae&quot;      
+## [160,] &quot;Liolaemidae&quot;      
+## [161,] &quot;Liolaemidae&quot;      
+## [162,] &quot;Crotaphytidae&quot;    
+## [163,] &quot;Crotaphytidae&quot;    
+## [164,] &quot;Liolaemidae&quot;      
+## [165,] &quot;Tropiduridae&quot;     
+## [166,] &quot;Tropiduridae&quot;     
+## [167,] &quot;Tropiduridae&quot;     
+## [168,] &quot;Tropiduridae&quot;     
+## [169,] &quot;Tropiduridae&quot;     
+## [170,] &quot;Tropiduridae&quot;     
+## [171,] &quot;Tropiduridae&quot;     
+## [172,] &quot;Tropiduridae&quot;     
+## [173,] &quot;Tropiduridae&quot;     
+## [174,] &quot;Xenosauridae&quot;     
+## [175,] &quot;Helodermatidae&quot;   
+## [176,] &quot;Anguidae&quot;         
+## [177,] &quot;Anguidae&quot;         
+## [178,] &quot;Anniellidae&quot;      
+## [179,] &quot;Anguidae&quot;         
+## [180,] &quot;Anguidae&quot;         
+## [181,] &quot;Anguidae&quot;         
+## [182,] &quot;Anguidae&quot;         
+## [183,] &quot;Anguidae&quot;         
+## [184,] &quot;Anguidae&quot;         
+## [185,] &quot;Anguidae&quot;         
+## [186,] &quot;Anguidae&quot;         
+## [187,] &quot;Anguidae&quot;         
+## [188,] &quot;Anguidae&quot;         
+## [189,] &quot;Lanthanotidae&quot;    
+## [190,] &quot;Varanidae&quot;        
+## [191,] &quot;Leptotyphlopidae&quot; 
+## [192,] &quot;Anomalepididae&quot;   
+## [193,] &quot;Typhlopidae&quot;      
+## [194,] &quot;Typhlopidae&quot;      
+## [195,] &quot;Xenodermidae&quot;     
+## [196,] &quot;Acrochordidae&quot;    
+## [197,] &quot;Viperidae&quot;        
+## [198,] &quot;Aniliidae&quot;        
+## [199,] &quot;Viperidae&quot;        
+## [200,] &quot;Lamprophiidae&quot;    
+## [201,] &quot;Elapidae&quot;         
+## [202,] &quot;Viperidae&quot;        
+## [203,] &quot;Homalopsidae&quot;     
+## [204,] &quot;Boidae&quot;           
+## [205,] &quot;Colubridae&quot;       
+## [206,] &quot;Colubridae&quot;       
+## [207,] &quot;Viperidae&quot;        
+## [208,] &quot;Cylindrophiidae&quot;  
+## [209,] &quot;Colubridae&quot;       
+## [210,] &quot;Boidae&quot;           
+## [211,] &quot;Boidae&quot;           
+## [212,] &quot;Colubridae&quot;       
+## [213,] &quot;Elapidae&quot;         
+## [214,] &quot;Colubridae&quot;       
+## [215,] &quot;Loxocemidae&quot;      
+## [216,] &quot;Elapidae&quot;         
+## [217,] &quot;Colubridae&quot;       
+## [218,] &quot;Colubridae&quot;       
+## [219,] &quot;Colubridae&quot;       
+## [220,] &quot;Colubridae&quot;       
+## [221,] &quot;Elapidae&quot;         
+## [222,] &quot;Pythonidae&quot;       
+## [223,] &quot;Uropeltidae&quot;      
+## [224,] &quot;Viperidae&quot;        
+## [225,] &quot;Colubridae&quot;       
+## [226,] &quot;Colubridae&quot;       
+## [227,] &quot;Tropidophiidae&quot;   
+## [228,] &quot;Viperidae&quot;        
+## [229,] &quot;Colubridae&quot;       
+## [230,] &quot;Xenopeltidae&quot;     
+## [231,] &quot;Colubridae&quot;       
+## [232,] &quot;Lacertidae&quot;       
+## [233,] &quot;Lacertidae&quot;       
+## [234,] &quot;Lacertidae&quot;       
+## [235,] &quot;Lacertidae&quot;       
+## [236,] &quot;Lacertidae&quot;       
+## [237,] &quot;Lacertidae&quot;       
+## [238,] &quot;Lacertidae&quot;       
+## [239,] &quot;Lacertidae&quot;       
+## [240,] &quot;Lacertidae&quot;       
+## [241,] &quot;Lacertidae&quot;       
+## [242,] &quot;Lacertidae&quot;       
+## [243,] &quot;Lacertidae&quot;       
+## [244,] &quot;Lacertidae&quot;       
+## [245,] &quot;Lacertidae&quot;       
+## [246,] &quot;Lacertidae&quot;       
+## [247,] &quot;Lacertidae&quot;       
+## [248,] &quot;Lacertidae&quot;       
+## [249,] &quot;Lacertidae&quot;       
+## [250,] &quot;Lacertidae&quot;       
+## [251,] &quot;Lacertidae&quot;       
+## [252,] &quot;Lacertidae&quot;       
+## [253,] &quot;Lacertidae&quot;       
+## [254,] &quot;Lacertidae&quot;       
+## [255,] &quot;Lacertidae&quot;       
+## [256,] &quot;Lacertidae&quot;       
+## [257,] &quot;Lacertidae&quot;       
+## [258,] &quot;Lacertidae&quot;       
+## [259,] &quot;Rhineuridae&quot;      
+## [260,] &quot;Trogonophiidae&quot;   
+## [261,] &quot;Amphisbaenidae&quot;   
+## [262,] &quot;Amphisbaenidae&quot;   
+## [263,] &quot;Bipedidae&quot;        
+## [264,] &quot;Blanidae&quot;         
+## [265,] &quot;Amphisbaenidae&quot;   
+## [266,] &quot;Amphisbaenidae&quot;   
+## [267,] &quot;Amphisbaenidae&quot;   
+## [268,] &quot;Trogonophiidae&quot;   
+## [269,] &quot;Amphisbaenidae&quot;   
+## [270,] &quot;Amphisbaenidae&quot;   
+## [271,] &quot;Amphisbaenidae&quot;   
+## [272,] &quot;Amphisbaenidae&quot;   
+## [273,] &quot;Trogonophiidae&quot;   
+## [274,] &quot;Amphisbaenidae&quot;   
+## [275,] &quot;Teiidae&quot;          
+## [276,] &quot;Teiidae&quot;          
+## [277,] &quot;Teiidae&quot;          
+## [278,] &quot;Teiidae&quot;          
+## [279,] &quot;Teiidae&quot;          
+## [280,] &quot;Teiidae&quot;          
+## [281,] &quot;Teiidae&quot;          
+## [282,] &quot;Teiidae&quot;          
+## [283,] &quot;Gymnophthalmidae&quot; 
+## [284,] &quot;Gymnophthalmidae&quot; 
+## [285,] &quot;Gymnophthalmidae&quot; 
+## [286,] &quot;Gymnophthalmidae&quot; 
+## [287,] &quot;Phyllodactylidae&quot; 
+## [288,] &quot;Gymnophthalmidae&quot; 
+## [289,] &quot;Gymnophthalmidae&quot; 
+## [290,] &quot;Gymnophthalmidae&quot; 
+## [291,] &quot;Gymnophthalmidae&quot; 
+## [292,] &quot;Gymnophthalmidae&quot; 
+## [293,] &quot;Gymnophthalmidae&quot; 
+## [294,] &quot;Gymnophthalmidae&quot; 
+## [295,] &quot;Gymnophthalmidae&quot; 
+## [296,] &quot;Gymnophthalmidae&quot; 
+## [297,] &quot;Gymnophthalmidae&quot; 
+## [298,] &quot;Gymnophthalmidae&quot; 
+## [299,] &quot;Scincidae&quot;        
+## [300,] &quot;Scincidae&quot;        
+## [301,] &quot;Scincidae&quot;        
+## [302,] &quot;Scincidae&quot;        
+## [303,] &quot;Scincidae&quot;        
+## [304,] &quot;Scincidae&quot;        
+## [305,] &quot;Scincidae&quot;        
+## [306,] &quot;Scincidae&quot;        
+## [307,] &quot;Scincidae&quot;        
+## [308,] &quot;Scincidae&quot;        
+## [309,] &quot;Scincidae&quot;        
+## [310,] &quot;Scincidae&quot;        
+## [311,] &quot;Scincidae&quot;        
+## [312,] &quot;Scincidae&quot;        
+## [313,] &quot;Scincidae&quot;        
+## [314,] &quot;Scincidae&quot;        
+## [315,] &quot;Scincidae&quot;        
+## [316,] &quot;Scincidae&quot;        
+## [317,] &quot;Scincidae&quot;        
+## [318,] &quot;Scincidae&quot;        
+## [319,] &quot;Scincidae&quot;        
+## [320,] &quot;Scincidae&quot;        
+## [321,] &quot;Scincidae&quot;        
+## [322,] &quot;Scincidae&quot;        
+## [323,] &quot;Scincidae&quot;        
+## [324,] &quot;Scincidae&quot;        
+## [325,] &quot;Scincidae&quot;        
+## [326,] &quot;Scincidae&quot;        
+## [327,] &quot;Scincidae&quot;        
+## [328,] &quot;Scincidae&quot;        
+## [329,] &quot;Scincidae&quot;        
+## [330,] &quot;Scincidae&quot;        
+## [331,] &quot;Scincidae&quot;        
+## [332,] &quot;Scincidae&quot;        
+## [333,] &quot;Scincidae&quot;        
+## [334,] &quot;Scincidae&quot;        
+## [335,] &quot;Scincidae&quot;        
+## [336,] &quot;Scincidae&quot;        
+## [337,] &quot;Scincidae&quot;        
+## [338,] &quot;Scincidae&quot;        
+## [339,] &quot;Scincidae&quot;        
+## [340,] &quot;Scincidae&quot;        
+## [341,] &quot;Scincidae&quot;        
+## [342,] &quot;Scincidae&quot;        
+## [343,] &quot;Scincidae&quot;        
+## [344,] &quot;Scincidae&quot;        
+## [345,] &quot;Scincidae&quot;        
+## [346,] &quot;Scincidae&quot;        
+## [347,] &quot;Scincidae&quot;        
+## [348,] &quot;Scincidae&quot;        
+## [349,] &quot;Scincidae&quot;        
+## [350,] &quot;Scincidae&quot;        
+## [351,] &quot;Scincidae&quot;        
+## [352,] &quot;Scincidae&quot;        
+## [353,] &quot;Scincidae&quot;        
+## [354,] &quot;Scincidae&quot;        
+## [355,] &quot;Scincidae&quot;        
+## [356,] &quot;Scincidae&quot;        
+## [357,] &quot;Scincidae&quot;        
+## [358,] &quot;Scincidae&quot;        
+## [359,] &quot;Scincidae&quot;        
+## [360,] &quot;Scincidae&quot;        
+## [361,] &quot;Scincidae&quot;        
+## [362,] &quot;Scincidae&quot;        
+## [363,] &quot;Scincidae&quot;        
+## [364,] &quot;Scincidae&quot;        
+## [365,] &quot;Scincidae&quot;        
+## [366,] &quot;Scincidae&quot;        
+## [367,] &quot;Scincidae&quot;        
+## [368,] &quot;Scincidae&quot;        
+## [369,] &quot;Scincidae&quot;        
+## [370,] &quot;Xantusiidae&quot;      
+## [371,] &quot;Xantusiidae&quot;      
+## [372,] &quot;Xantusiidae&quot;      
+## [373,] &quot;Xantusiidae&quot;      
+## [374,] &quot;Cordylidae&quot;       
+## [375,] &quot;Gerrhosauridae&quot;   
+## [376,] &quot;Gerrhosauridae&quot;   
+## [377,] &quot;Gerrhosauridae&quot;   
+## [378,] &quot;Gerrhosauridae&quot;   
+## [379,] &quot;Cordylidae&quot;       
+## [380,] &quot;Cordylidae&quot;       
+## [381,] &quot;Cordylidae&quot;       
+## [382,] &quot;Cordylidae&quot;       
+## [383,] &quot;Shinisauridae&quot;    
+## [384,] &quot;Scincidae&quot;
+</code></pre>
+
+</body>
+
+</html>
+
